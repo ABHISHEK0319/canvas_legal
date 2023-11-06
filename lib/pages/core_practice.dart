@@ -64,7 +64,6 @@ class _CorePracticeState extends State<CorePractice>
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.red,
         height: 250,
         constraints: const BoxConstraints.expand(),
         child: Stack(
