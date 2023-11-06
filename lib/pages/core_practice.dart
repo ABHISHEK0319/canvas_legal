@@ -69,80 +69,84 @@ class _CorePracticeState extends State<CorePractice>
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: CustomScrollView(
-                controller: scrollController,
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: false,
-                slivers: <Widget>[
-                  SliverPadding(
-                    padding: const EdgeInsets.symmetric(vertical: 0.0),
-                    sliver: SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) => Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const [
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 1.png',
-                              title: 'Dispute \nResolution',
+            Column(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: CustomScrollView(
+                    controller: scrollController,
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: false,
+                    slivers: <Widget>[
+                      SliverPadding(
+                        padding: const EdgeInsets.symmetric(vertical: 0.0),
+                        sliver: SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                            (context, index) => Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: const [
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 1.png',
+                                  title: 'Dispute \nResolution',
+                                ),
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 2.png',
+                                  title: 'Real Estate \nAnd Construction',
+                                ),
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 3.png',
+                                  title: 'Corporate \n& Commercial',
+                                ),
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 4.png',
+                                  title: 'Corporate \nSecretarial',
+                                ),
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 5.png',
+                                  title: 'Dispute \nResolution',
+                                ),
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 6.png',
+                                  title: 'Dispute \nResolution',
+                                ),
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 7.png',
+                                  title: 'Dispute \nResolution',
+                                ),
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 8.png',
+                                  title: 'Dispute \nResolution',
+                                ),
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 9.png',
+                                  title: 'Dispute \nResolution',
+                                ),
+                                SizedBox(width: 80),
+                                IconAndText(
+                                  icon: 'assets/images/Asset 10.png',
+                                  title: 'Dispute \nResolution',
+                                ),
+                                SizedBox(width: 40),
+                              ],
                             ),
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 2.png',
-                              title: 'Real Estate \nAnd Construction',
-                            ),
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 3.png',
-                              title: 'Corporate \n& Commercial',
-                            ),
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 4.png',
-                              title: 'Corporate \nSecretarial',
-                            ),
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 5.png',
-                              title: 'Dispute \nResolution',
-                            ),
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 6.png',
-                              title: 'Dispute \nResolution',
-                            ),
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 7.png',
-                              title: 'Dispute \nResolution',
-                            ),
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 8.png',
-                              title: 'Dispute \nResolution',
-                            ),
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 9.png',
-                              title: 'Dispute \nResolution',
-                            ),
-                            SizedBox(width: 80),
-                            IconAndText(
-                              icon: 'assets/images/Asset 10.png',
-                              title: 'Dispute \nResolution',
-                            ),
-                            SizedBox(width: 40),
-                          ],
+                            childCount: 10,
+                          ),
                         ),
-                        childCount: 10,
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.only(top: 50, left: 10, right: 10),
