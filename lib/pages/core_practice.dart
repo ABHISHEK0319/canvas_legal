@@ -69,113 +69,129 @@ class _CorePracticeState extends State<CorePractice>
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
-            Column(
+            Row(
               children: [
                 Expanded(
-                  flex: 1,
-                  child: CustomScrollView(
-                    controller: scrollController,
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: false,
-                    slivers: <Widget>[
-                      SliverPadding(
-                        padding: const EdgeInsets.symmetric(vertical: 0.0),
-                        sliver: SliverList(
-                          delegate: SliverChildBuilderDelegate(
-                            (context, index) => Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: const [
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 1.png',
-                                  title: 'Dispute \nResolution',
-                                ),
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 2.png',
-                                  title: 'Real Estate \nAnd Construction',
-                                ),
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 3.png',
-                                  title: 'Corporate \n& Commercial',
-                                ),
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 4.png',
-                                  title: 'Corporate \nSecretarial',
-                                ),
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 5.png',
-                                  title: 'Dispute \nResolution',
-                                ),
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 6.png',
-                                  title: 'Dispute \nResolution',
-                                ),
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 7.png',
-                                  title: 'Dispute \nResolution',
-                                ),
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 8.png',
-                                  title: 'Dispute \nResolution',
-                                ),
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 9.png',
-                                  title: 'Dispute \nResolution',
-                                ),
-                                SizedBox(width: 80),
-                                IconAndText(
-                                  icon: 'assets/images/Asset 10.png',
-                                  title: 'Dispute \nResolution',
-                                ),
-                                SizedBox(width: 40),
-                              ],
+                  //flex: 1,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 50, left: 15, right: 15),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: IconButton(
+                            onPressed: scrollLeft,
+                            icon: const Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              color: Colors.black,
+                              size: 30,
                             ),
-                            childCount: 10,
                           ),
+                        ),
+                      ),
+                      Expanded(
+                        child: CustomScrollView(
+                          controller: scrollController,
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: false,
+                          slivers: <Widget>[
+                            SliverPadding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 0.0),
+                              sliver: SliverList(
+                                delegate: SliverChildBuilderDelegate(
+                                  (context, index) => Row(
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: const [
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 1.png',
+                                            title: 'Dispute \nResolution',
+                                          ),
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 2.png',
+                                            title:
+                                                'Real Estate \nAnd Construction',
+                                          ),
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 3.png',
+                                            title: 'Corporate \n& Commercial',
+                                          ),
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 4.png',
+                                            title: 'Corporate \nSecretarial',
+                                          ),
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 5.png',
+                                            title: 'Dispute \nResolution',
+                                          ),
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 6.png',
+                                            title: 'Dispute \nResolution',
+                                          ),
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 7.png',
+                                            title: 'Dispute \nResolution',
+                                          ),
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 8.png',
+                                            title: 'Dispute \nResolution',
+                                          ),
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 9.png',
+                                            title: 'Dispute \nResolution',
+                                          ),
+                                          SizedBox(width: 80),
+                                          IconAndText(
+                                            icon: 'assets/images/Asset 10.png',
+                                            title: 'Dispute \nResolution',
+                                          ),
+                                          SizedBox(width: 40),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  childCount: 10,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 50, left: 15, right: 15),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: IconButton(
+                      onPressed: scrollRight,
+                      icon: const Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 50, left: 10, right: 10),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: IconButton(
-                  onPressed: scrollLeft,
-                  icon: const Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 50, left: 10, right: 10),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: IconButton(
-                  onPressed: scrollRight,
-                  icon: const Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                ),
-              ),
-            ),
+
             //const SizedBox(height: 140),
             Padding(
               padding: const EdgeInsets.only(top: 180),

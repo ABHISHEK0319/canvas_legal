@@ -103,7 +103,7 @@ class _NewDemoPage1State extends State<NewDemoPage1> {
           Container(
             height: 40,
             width: size.width * 0.11,
-            margin: EdgeInsets.only(left: 35),
+            margin: const EdgeInsets.only(left: 35),
             child: ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
@@ -172,15 +172,15 @@ class _NewDemoPage1State extends State<NewDemoPage1> {
             decoration: const BoxDecoration(
               //shape: BoxShape.circle,
               image: DecorationImage(
-                scale: 0.2,
+                scale: 0.5,
                 image: AssetImage(
                   "assets/1x/Circle.png",
                 ),
               ),
             ),
             child: Image.asset(
-              "Law_image.png",
-              height: 400,
+              "assets/images/judge_gavel_legal_book.png",
+              height: 500,
             ),
           ),
         ],

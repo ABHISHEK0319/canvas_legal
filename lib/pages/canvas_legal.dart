@@ -220,7 +220,7 @@ class _CLfirstPageState extends State<CLfirstPage> {
               ],
               image: const DecorationImage(
                 scale: 1.6,
-                image: AssetImage("Logo.png"),
+                image: AssetImage("assets/images/Logo.png"),
               ),
             ),
             child: Row(
