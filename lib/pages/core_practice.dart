@@ -70,6 +70,7 @@ class _CorePracticeState extends State<CorePractice>
           alignment: Alignment.center,
           children: <Widget>[
             Expanded(
+              flex: 1,
               child: CustomScrollView(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal,
