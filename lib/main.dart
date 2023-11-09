@@ -1,4 +1,4 @@
-import 'package:canvas_legal/pages/canvas_legal.dart';
+import 'package:canvas_legal/pages/singlepageweb.dart';
 
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CLfirstPage(),
+      home: const SingleWebPage(),
+
+      //const CLfirstPage(),
     );
   }
 }

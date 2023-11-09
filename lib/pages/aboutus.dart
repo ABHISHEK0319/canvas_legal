@@ -8,19 +8,24 @@ class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.only(top: 50.0),
+    return Container(
+      padding: const EdgeInsets.only(top: 100, bottom: 120),
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage("assets/1x/About us Shape.png"))),
       child: Stack(
         children: [
-          Image.asset(
-            "assets/1x/About us Shape.png",
-            width: size.width,
-            alignment: Alignment.topCenter,
-          ),
+          // Image.asset(
+          //   "assets/1x/About us Shape.png",
+          //   width: double.infinity,
+          //   //alignment: Alignment.topCenter,
+          //   fit: BoxFit.fill,
+          // ),
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(35),
+                //padding: const EdgeInsets.all(35),
                 // color: Colors.amber,
                 width: MediaQuery.of(context).size.width * 1 / 2.2,
                 child: Image.asset(
@@ -29,7 +34,7 @@ class AboutUs extends StatelessWidget {
                 ),
               ),
               Container(
-                // color: Colors.amber,
+                //color: Colors.amber,
                 padding: const EdgeInsets.only(right: 80),
                 width: MediaQuery.of(context).size.width * 1 / 2,
                 child: Column(
@@ -55,15 +60,6 @@ class AboutUs extends StatelessWidget {
                         ],
                       ),
                     ),
-                    // const Text(
-                    //   "About Us",
-                    //   style: TextStyle(
-                    //     fontFamily: "ButlerBlack",
-                    //     fontSize: 52,
-                    //     color: Colors.black,
-                    //   ),
-                    //   //textAlign: TextAlign.start,
-                    // ),
                     Text(
                       """Located in the thriving hub of Bangalore, India, Canvas Legal stands as a testament to dedication, innovation, and unwavering commitment to legal excellence. We pride ourselves on offering expert guidance in the legal sphere, ensuring our clients feel supported and informed every step of the way.""",
                       style: GoogleFonts.montserrat(
@@ -107,11 +103,9 @@ class AboutUs extends StatelessWidget {
                       ),
                       textAlign: TextAlign.justify,
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
                     InkWell(
                       onTap: () {},
                       child: Container(

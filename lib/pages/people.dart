@@ -1,6 +1,3 @@
-import 'package:canvas_legal/constant/colors.dart';
-import 'package:canvas_legal/pages/aboutus.dart';
-import 'package:canvas_legal/pages/core_practice.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,18 +17,21 @@ class _NewDemoPage1State extends State<NewDemoPage1> {
         Stack(
           children: [
             // ....top part....
-            Row(
-              children: [
-                topLeftPartWidget(size),
+            Container(
+              padding: const EdgeInsets.only(top: 120),
+              child: Row(
+                children: [
+                  topLeftPartWidget(size),
 
-                // ....Right side top work
-                rightContainedWidget(size),
-              ],
+                  // ....Right side top work
+                  rightContainedWidget(size),
+                ],
+              ),
             ),
           ],
         ),
         // Here Define Core Team.....
-        const CoreTeam(),
+        //const CoreTeam(),
       ],
     );
   }
@@ -167,7 +167,7 @@ class _NewDemoPage1State extends State<NewDemoPage1> {
           // ),
 
           Container(
-            height: size.height * 0.7,
+            /// height: size.height * 0.7,
             margin: const EdgeInsets.only(top: 80),
             decoration: const BoxDecoration(
               //shape: BoxShape.circle,
@@ -183,62 +183,6 @@ class _NewDemoPage1State extends State<NewDemoPage1> {
               height: 500,
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class CoreTeam extends StatefulWidget {
-  const CoreTeam({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<CoreTeam> createState() => _CoreTeamState();
-}
-
-class _CoreTeamState extends State<CoreTeam> {
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      //color: Colors.white,
-
-      width: size.width,
-      padding: const EdgeInsets.only(top: 150),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 80.0),
-            child: RichText(
-              text: TextSpan(
-                text: 'Core ',
-                style: const TextStyle(
-                  fontFamily: "ButlerRegular",
-                  color: Colors.black,
-                  fontSize: 72,
-                  fontWeight: FontWeight.w700,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'Practices',
-                    style: TextStyle(
-                      fontFamily: "ButlerRegular",
-                      color: CanvasLegalColors.Blue[1],
-                      fontSize: 72,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: size.height * 0.9,
-            child: const CorePractice(),
-          ),
-          const AboutUs(),
         ],
       ),
     );
