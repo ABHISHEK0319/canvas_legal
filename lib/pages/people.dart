@@ -38,7 +38,7 @@ class _NewDemoPage1State extends State<NewDemoPage1> {
 
   Container topLeftPartWidget(Size size) {
     return Container(
-      //color: const Color(0xFFc0e2ec),
+      // color: const Color(0xFFc0e2ec),
       width: size.width / 1.8,
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.center,

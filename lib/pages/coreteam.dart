@@ -37,7 +37,7 @@ class CoreTeamWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 125.0),
+          padding: const EdgeInsets.only(top: 126.0),
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [

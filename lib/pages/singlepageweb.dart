@@ -76,6 +76,7 @@ class _SingleWebPageState extends State<SingleWebPage> {
                     itemCount: _widgetOptions.length,
                     itemBuilder: (context, index) {
                       return Container(
+                        color: Colors.redAccent,
                         width: s.width,
                         child: Stack(
                           children: [

@@ -16,12 +16,6 @@ class AboutUs extends StatelessWidget {
               image: AssetImage("assets/1x/About us Shape.png"))),
       child: Stack(
         children: [
-          // Image.asset(
-          //   "assets/1x/About us Shape.png",
-          //   width: double.infinity,
-          //   //alignment: Alignment.topCenter,
-          //   fit: BoxFit.fill,
-          // ),
           Row(
             children: [
               Container(

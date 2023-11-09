@@ -6,7 +6,7 @@ class BottomBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      //color: Colors.green,
       height: 400,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
