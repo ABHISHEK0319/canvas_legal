@@ -76,7 +76,6 @@ class _SingleWebPageState extends State<SingleWebPage> {
                     itemCount: _widgetOptions.length,
                     itemBuilder: (context, index) {
                       return Container(
-                        color: Colors.redAccent,
                         width: s.width,
                         child: Stack(
                           children: [
@@ -155,7 +154,7 @@ class _SingleWebPageState extends State<SingleWebPage> {
                         ),
                         ListTile(
                           title: const Text(
-                            'About us',
+                            'Expertise',
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -171,7 +170,7 @@ class _SingleWebPageState extends State<SingleWebPage> {
                         ),
                         ListTile(
                           title: const Text(
-                            'Expertise',
+                            'About Us',
                             style: TextStyle(
                               fontSize: 18,
                             ),

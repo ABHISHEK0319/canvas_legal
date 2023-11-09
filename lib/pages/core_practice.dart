@@ -17,7 +17,7 @@ class _CorePracticeState extends State<CorePractice> {
     return Container(
       //
       //
-      color: Colors.red,
+      //color: Colors.red,
       //height: size.height,
 
       width: size.width,

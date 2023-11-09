@@ -21,7 +21,7 @@ class BottomBarWidget extends StatelessWidget {
                     "assets/images/Logo.png",
                     height: 58,
                   ),
-                  DetailOfCompany()
+                  const DetailOfCompany()
                 ],
               ),
             ],
