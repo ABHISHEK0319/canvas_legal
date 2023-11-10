@@ -6,20 +6,20 @@ import 'package:canvas_legal/pages/bottombar.dart';
 import 'package:canvas_legal/pages/coreteam.dart';
 
 import 'package:canvas_legal/pages/people.dart';
-import 'package:flutter/gestures.dart';
+// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'core_practice.dart';
 
-class MyCustomScrollBehavior extends MaterialScrollBehavior {
-  // Override behavior methods and getters like dragDevices
-  @override
-  Set<PointerDeviceKind> get dragDevices => {
-        PointerDeviceKind.touch,
-        PointerDeviceKind.mouse,
-        // etc.
-      };
-}
+// class MyCustomScrollBehavior extends MaterialScrollBehavior {
+//   // Override behavior methods and getters like dragDevices
+//   @override
+//   Set<PointerDeviceKind> get dragDevices => {
+//         PointerDeviceKind.touch,
+//         PointerDeviceKind.mouse,
+//         // etc.
+//       };
+// }
 
 class SingleWebPage extends StatefulWidget {
   const SingleWebPage({super.key});
