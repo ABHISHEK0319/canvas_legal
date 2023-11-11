@@ -1,15 +1,13 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:canvas_legal/constant/colors.dart';
-import 'package:canvas_legal/pages/aboutus.dart';
-import 'package:canvas_legal/pages/bottombar.dart';
-import 'package:canvas_legal/pages/coreteam.dart';
-
-import 'package:canvas_legal/pages/people.dart';
+import 'package:canvas_legal/mobile%20pages/mobaboutus.dart';
+import 'package:canvas_legal/mobile%20pages/mobcorepracticepg.dart';
+import 'package:canvas_legal/mobile%20pages/mobpeoplepg.dart';
+import 'package:canvas_legal/web%20pages/bottombar.dart';
+import 'package:canvas_legal/web%20pages/coreteam.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
-import 'core_practice.dart';
 
 // class MyCustomScrollBehavior extends MaterialScrollBehavior {
 //   // Override behavior methods and getters like dragDevices
@@ -21,20 +19,20 @@ import 'core_practice.dart';
 //       };
 // }
 
-class SingleWebPage extends StatefulWidget {
-  const SingleWebPage({super.key});
+class SingleMobPage extends StatefulWidget {
+  const SingleMobPage({super.key});
 
   @override
-  State<SingleWebPage> createState() => _SingleWebPageState();
+  State<SingleMobPage> createState() => _SingleMobPageState();
 }
 
-class _SingleWebPageState extends State<SingleWebPage> {
+class _SingleMobPageState extends State<SingleMobPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  // static const TextStyle optionStyle =
+  //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  final _containerHeight = 740.0;
+  final _containerHeight = 465.0;
   final ScrollController _scrollController = ScrollController();
 
   void _scrollToTap(int index) {
@@ -46,11 +44,11 @@ class _SingleWebPageState extends State<SingleWebPage> {
   }
 
   final List<Widget> _widgetOptions = <Widget>[
-    const NewDemoPage1(),
-    const CorePractice(),
-    const AboutUs(),
-    const CoreTeamWidget(),
-    const BottomBarWidget(),
+    const MobPeoplePage(),
+    const MobCorePractice(),
+    const MobAboutUs(),
+    // const CoreTeamWidget(),
+    // const BottomBarWidget(),
   ];
 
   void _onItemTapped(int index) {
@@ -108,12 +106,12 @@ class _SingleWebPageState extends State<SingleWebPage> {
         ],
       ),
       endDrawer: Padding(
-        padding: EdgeInsets.only(top: s.height * 0.16, right: 80),
+        padding: EdgeInsets.only(top: s.height * 0.08, right: 40),
         child: Align(
           alignment: Alignment.topRight,
           child: Container(
-            width: 300,
-            height: 250,
+            width: 200,
+            height: 200,
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 172, 174, 176),
               borderRadius: BorderRadius.circular(20),
@@ -139,8 +137,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           title: const Text(
                             'People',
                             style: TextStyle(
-                              fontSize: 18,
-                              height: 1.2,
+                              fontSize: 12,
+                              height: 1.5,
                             ),
                           ),
                           selected: _selectedIndex == 0,
@@ -156,7 +154,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           title: const Text(
                             'Expertise',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 12,
+                              height: 1.5,
                             ),
                           ),
                           selected: _selectedIndex == 1,
@@ -172,7 +171,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           title: const Text(
                             'About Us',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 12,
+                              height: 1.5,
                             ),
                           ),
                           selected: _selectedIndex == 2,
@@ -188,7 +188,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           title: const Text(
                             'Research & Knowledge',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 12,
+                              height: 1.5,
                             ),
                           ),
                           selected: _selectedIndex == 3,
@@ -204,7 +205,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           title: const Text(
                             'Careers',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 12,
+                              height: 1.5,
                             ),
                           ),
                           selected: _selectedIndex == 4,
@@ -220,7 +222,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           title: const Text(
                             'Contact us',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 12,
+                              height: 1.5,
                             ),
                           ),
                           selected: _selectedIndex == 5,
@@ -243,7 +246,7 @@ class _SingleWebPageState extends State<SingleWebPage> {
       // floating button...
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _scrollToTap(5);
+          _scrollToTap(0);
         },
         backgroundColor: CanvasLegalColors.Blue[1],
         child: const Icon(Icons.arrow_circle_up_rounded),
@@ -257,27 +260,27 @@ class _SingleWebPageState extends State<SingleWebPage> {
       children: [
         Container(
           width: double.infinity,
-          height: 50,
+          height: 40,
           color: const Color(0xFF005067),
         ),
         Positioned(
-          top: 35,
+          top: 30,
           child: Container(
             width: s.width * 0.9,
-            height: 72,
+            height: 35,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(50),
               boxShadow: const [
                 BoxShadow(
-                  offset: Offset(6, 6),
+                  offset: Offset(4, 4),
                   color: Colors.black38,
                   spreadRadius: 1,
                   blurRadius: 1,
                 )
               ],
               image: const DecorationImage(
-                scale: 1.6,
+                scale: 2.8,
                 image: AssetImage("assets/images/Logo.png"),
               ),
             ),
@@ -288,25 +291,25 @@ class _SingleWebPageState extends State<SingleWebPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: InkWell(
                         onTap: () {
                           _scrollToTap(3);
                         },
                         child: const Icon(
                           Icons.call,
-                          size: 30,
+                          size: 15,
                           color: Colors.black,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: InkWell(
                         onTap: () {},
                         child: const Icon(
                           Icons.search,
-                          size: 30,
+                          size: 15,
                           color: Colors.black,
                         ),
                       ),
@@ -317,11 +320,11 @@ class _SingleWebPageState extends State<SingleWebPage> {
                       },
                       icon: const Icon(
                         Icons.menu,
-                        size: 32,
+                        size: 15,
                       ),
                     ),
                     SizedBox(
-                      width: s.width * 0.02,
+                      width: s.width * 0.01,
                     )
                   ],
                 ),

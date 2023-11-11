@@ -1,10 +1,9 @@
-import 'package:canvas_legal/main.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/colors.dart';
 
-class CoreTeamWidget extends StatelessWidget {
-  const CoreTeamWidget({super.key});
+class MobCoreTeamWidget extends StatelessWidget {
+  const MobCoreTeamWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

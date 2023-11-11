@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class NewDemoPage1 extends StatefulWidget {
-  const NewDemoPage1({super.key});
+class PeoplePage extends StatefulWidget {
+  const PeoplePage({super.key});
 
   @override
-  State<NewDemoPage1> createState() => _NewDemoPage1State();
+  State<PeoplePage> createState() => _PeoplePageState();
 }
 
-class _NewDemoPage1State extends State<NewDemoPage1> {
+class _PeoplePageState extends State<PeoplePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
