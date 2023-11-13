@@ -65,51 +65,55 @@ class _SingleMobPageState extends State<SingleMobPage> {
 
     return Scaffold(
       key: _scaffoldKey,
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              Expanded(
-                flex: 1,
-                child: ListView.builder(
-                    controller: _scrollController,
-                    itemCount: _widgetOptions.length,
-                    itemBuilder: (context, index) {
-                      return SizedBox(
-                        width: s.width,
-                        child: Stack(
-                          children: [
-                            SizedBox(
-                              width: s.width,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  SizedBox(
-                                    width: s.width,
-                                    child: Center(
-                                      child: _widgetOptions[index],
+      body: InteractiveViewer(
+        maxScale: 5.0,
+        minScale: 0.01,
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: ListView.builder(
+                      controller: _scrollController,
+                      itemCount: _widgetOptions.length,
+                      itemBuilder: (context, index) {
+                        return SizedBox(
+                          width: s.width,
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                width: s.width,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    SizedBox(
+                                      width: s.width,
+                                      child: Center(
+                                        child: _widgetOptions[index],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      );
-                    }),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: s.height * 0.3,
-            child: SearchPlusComponents(
-              context: context,
-              scaffoldKey: _scaffoldKey,
-              s: s,
+                            ],
+                          ),
+                        );
+                      }),
+                ),
+              ],
             ),
-          ),
-        ],
+            SizedBox(
+              height: s.height * 0.3,
+              child: SearchPlusComponents(
+                context: context,
+                scaffoldKey: _scaffoldKey,
+                s: s,
+              ),
+            ),
+          ],
+        ),
       ),
       endDrawer: Padding(
         padding: EdgeInsets.only(top: s.height * 0.08, right: 40),
