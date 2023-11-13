@@ -1,3 +1,4 @@
+import 'package:canvas_legal/constant/stringfile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -92,6 +93,7 @@ class _PeoplePageState extends State<PeoplePage> {
 
   // button............
   Padding buttonTopSection(Size size) {
+    Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(
         left: 90,
@@ -102,10 +104,45 @@ class _PeoplePageState extends State<PeoplePage> {
         children: [
           Container(
             height: 40,
-            width: size.width * 0.11,
+            // width: size.width * 0.11,
             margin: const EdgeInsets.only(left: 35),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                  ),
+                  context: context,
+                  builder: (context) {
+                    return SizedBox(
+                      width: size.width * 1.0,
+                      height: size.height * 0.5,
+                      child: SingleChildScrollView(
+                        child: Center(
+                          child: Column(
+                            //mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(18.0),
+                                child: Text(
+                                  oneReadMore,
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.all(const Color(0xFF005067)),

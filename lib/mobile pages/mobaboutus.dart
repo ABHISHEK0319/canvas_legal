@@ -24,7 +24,7 @@ class MobAboutUs extends StatelessWidget {
             // color: Colors.amber,
             alignment: Alignment.center,
             width: MediaQuery.of(context).size.width,
-            padding: const EdgeInsets.only(top: 35, bottom: 60),
+            padding: const EdgeInsets.only(top: 45, bottom: 60),
             child: Image.asset(
               "assets/images/About Us icon.png",
               width: size.width * 0.4,
@@ -33,7 +33,7 @@ class MobAboutUs extends StatelessWidget {
           Container(
             //color: Colors.amber,
             alignment: Alignment.center,
-            padding: const EdgeInsets.only(right: 20.0, left: 20.0),
+            padding: const EdgeInsets.only(right: 28.0, left: 28.0),
             width: MediaQuery.of(context).size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -112,37 +112,37 @@ class MobAboutUs extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                InkWell(
-                  onTap: () {},
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 95,
-                    height: 25,
-                    padding: const EdgeInsets.only(
-                      top: 1.5,
-                      bottom: 1.5,
-                      left: 3.0,
-                      right: 3.0,
-                    ),
-                    decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(6),
-                          bottomRight: Radius.circular(6),
-                        ),
-                        border: Border.all(
-                            color: CanvasLegalColors.Blue, width: 1.8)
-                        //color: Colors.greenAccent,
-                        ),
-                    child: Text(
-                      'Read More'.toUpperCase(),
-                      style: GoogleFonts.montserrat(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                  ),
-                ),
+                // InkWell(
+                //   onTap: () {},
+                //   child: Container(
+                //     alignment: Alignment.center,
+                //     width: 95,
+                //     height: 25,
+                //     padding: const EdgeInsets.only(
+                //       top: 1.5,
+                //       bottom: 1.5,
+                //       left: 3.0,
+                //       right: 3.0,
+                //     ),
+                //     decoration: BoxDecoration(
+                //         borderRadius: const BorderRadius.only(
+                //           topLeft: Radius.circular(6),
+                //           bottomRight: Radius.circular(6),
+                //         ),
+                //         border: Border.all(
+                //             color: CanvasLegalColors.Blue, width: 1.8)
+                //         //color: Colors.greenAccent,
+                //         ),
+                //     child: Text(
+                //       'Read More'.toUpperCase(),
+                //       style: GoogleFonts.montserrat(
+                //         fontSize: 11,
+                //         fontWeight: FontWeight.w600,
+                //         letterSpacing: 1,
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 const SizedBox(height: 90)
               ],
             ),

@@ -25,14 +25,14 @@ class _CorePracticeState extends State<CorePractice> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 80.0),
+            padding: const EdgeInsets.only(bottom: 60.0, top: 5),
             child: RichText(
               text: TextSpan(
                 text: 'Core ',
                 style: const TextStyle(
                   fontFamily: "ButlerRegular",
                   color: Colors.black,
-                  fontSize: 72,
+                  fontSize: 50,
                   fontWeight: FontWeight.w700,
                 ),
                 children: <TextSpan>[
@@ -41,7 +41,7 @@ class _CorePracticeState extends State<CorePractice> {
                     style: TextStyle(
                       fontFamily: "ButlerRegular",
                       color: CanvasLegalColors.Blue[1],
-                      fontSize: 72,
+                      fontSize: 50,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -50,7 +50,7 @@ class _CorePracticeState extends State<CorePractice> {
             ),
           ),
           SizedBox(
-            height: size.height * 0.9,
+            height: size.height * 0.8,
             child: const CorePracticeItems(),
           ),
           // const AboutUs(),
@@ -123,6 +123,7 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
   @override
   Widget build(BuildContext context) {
     return Container(
+        //color: Colors.amber,
         // height: 250,
         constraints: const BoxConstraints.expand(),
         child: Stack(
@@ -136,7 +137,7 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsets.only(top: 50, left: 15, right: 15),
+                            const EdgeInsets.only(top: 40, left: 10, right: 10),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: IconButton(
@@ -185,7 +186,7 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 50, left: 15, right: 15),
+                  padding: const EdgeInsets.only(top: 40, left: 10, right: 10),
                   child: Align(
                     alignment: Alignment.topRight,
                     child: IconButton(
@@ -198,9 +199,9 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 120,
-                )
+                // const SizedBox(
+                //   height: 120,
+                // )
               ],
             ),
 
@@ -232,14 +233,14 @@ class IconAndText extends StatelessWidget {
       children: [
         Image.asset(
           icon,
-          height: 160,
+          height: 140,
         ),
         const SizedBox(height: 15),
         Text(
           title,
           style: const TextStyle(
             fontFamily: 'ButlerRegular',
-            fontSize: 26,
+            fontSize: 24,
             fontWeight: FontWeight.w800,
             color: Colors.black,
           ),

@@ -1,4 +1,5 @@
 import 'package:canvas_legal/constant/colors.dart';
+import 'package:canvas_legal/responsiveclass.dart';
 import 'package:flutter/material.dart';
 
 class BottomBarWidget extends StatelessWidget {
@@ -6,6 +7,7 @@ class BottomBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     TextStyle styletitle = const TextStyle(
           color: Colors.black,
           fontSize: 22,
@@ -16,6 +18,16 @@ class BottomBarWidget extends StatelessWidget {
         txtstyle =
             const TextStyle(color: Colors.black, fontSize: 12, height: 2.0);
 
+    var widgetbottom = ResponsiveWidget(
+      largeScreen: largeWidget(styletitle, txtstyle),
+      mediumScreen: smallWidget(styletitle, txtstyle),
+      //mediumScreen: ,
+    );
+
+    return widgetbottom;
+  }
+
+  Container largeWidget(TextStyle styletitle, TextStyle txtstyle) {
     return Container(
       //color: Colors.green,
       height: 300,
@@ -135,6 +147,106 @@ class BottomBarWidget extends StatelessWidget {
       ),
     );
   }
+
+  Container smallWidget(TextStyle styletitle, TextStyle txtstyle) {
+    return Container(
+      //color: Colors.green,
+      //height: 300,
+      padding: const EdgeInsets.only(top: 40),
+      child: Column(
+        //mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 80, right: 40, top: 20, bottom: 25),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const DetailOfCompany(),
+                Container(
+                  color: Colors.black,
+                  width: 1,
+                  height: 220,
+                  margin: const EdgeInsets.only(left: 40, right: 40),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Facility",
+                      style: styletitle,
+                      textAlign: TextAlign.start,
+                    ),
+                  ],
+                ),
+                const SizedBox(width: 45),
+                Column(
+                  children: [
+                    Text(
+                      "Support",
+                      style: styletitle,
+                      textAlign: TextAlign.start,
+                    ),
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '\nAbout Us',
+                            style: txtstyle,
+                          ),
+                          TextSpan(
+                            text: '\nFAQs',
+                            style: txtstyle,
+                          ),
+                          TextSpan(
+                            text: '\nPrivacy policy',
+                            style: txtstyle,
+                          ),
+                          TextSpan(
+                            text: '\nHelp Me',
+                            style: txtstyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(width: 45),
+                Column(
+                  children: [
+                    Text(
+                      "Service",
+                      style: styletitle,
+                      textAlign: TextAlign.start,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+
+          // term privacy policy....
+          Container(
+            //margin: const EdgeInsets.only(top: 40),
+            alignment: Alignment.bottomRight,
+            color: CanvasLegalColors.Blue[1],
+            width: double.infinity,
+            height: 40,
+            padding: const EdgeInsets.only(top: 12.0, right: 80, bottom: 12.0),
+            child: const Text(
+              "TERM PRIVACY POLICY",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class DetailOfCompany extends StatelessWidget {
@@ -220,13 +332,53 @@ class DetailOfCompany extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 15),
-        const Text(
-          'Follow Us',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 12,
-          ),
+        Column(
+          children: [
+            const Text(
+              'Follow Us',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 12,
+              ),
+            ),
+            const SizedBox(height: 5),
+            Row(
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: Image.asset(
+                    "1x/facebook.png",
+                    height: 16,
+                  ),
+                ),
+                const SizedBox(width: 5),
+                InkWell(
+                  onTap: () {},
+                  child: Image.asset(
+                    "1x/linkedin.png",
+                    height: 16,
+                  ),
+                ),
+                const SizedBox(width: 5),
+                InkWell(
+                  onTap: () {},
+                  child: Image.asset(
+                    "1x/twitter.png",
+                    height: 16,
+                  ),
+                ),
+                const SizedBox(width: 5),
+                InkWell(
+                  onTap: () {},
+                  child: Image.asset(
+                    "1x/youtube.png",
+                    height: 16,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ],
     );

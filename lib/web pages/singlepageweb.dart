@@ -8,6 +8,7 @@ import 'package:canvas_legal/web%20pages/coreteam.dart';
 import 'package:canvas_legal/web%20pages/people.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'core_practice.dart';
 
@@ -34,7 +35,7 @@ class _SingleWebPageState extends State<SingleWebPage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  final _containerHeight = 740.0;
+  final _containerHeight = 720.0;
   final ScrollController _scrollController = ScrollController();
 
   void _scrollToTap(int index) {
@@ -113,19 +114,19 @@ class _SingleWebPageState extends State<SingleWebPage> {
           alignment: Alignment.topRight,
           child: Container(
             width: 300,
-            height: 250,
+            height: 225,
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 172, 174, 176),
+              color: Colors.white24,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Drawer(
               elevation: 0.5,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
-                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                  topLeft: Radius.circular(10),
                 ),
               ),
               child: ListView.builder(
@@ -133,17 +134,11 @@ class _SingleWebPageState extends State<SingleWebPage> {
                   itemBuilder: (context, index) {
                     return Column(
                       // Important: Remove any padding from the ListView.
-                      //padding: const EdgeInsets.all(15),
+                      //padding: const EdgeInsets.all(16),
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ListTile(
-                          title: const Text(
-                            'People',
-                            style: TextStyle(
-                              fontSize: 18,
-                              height: 1.2,
-                            ),
-                          ),
-                          selected: _selectedIndex == 0,
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(0);
@@ -151,15 +146,26 @@ class _SingleWebPageState extends State<SingleWebPage> {
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'Expertise',
-                            style: TextStyle(
-                              fontSize: 18,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 25.0, left: 16.0, bottom: 10),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: const Text(
+                                'People',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  height: 1.2,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 1,
+                        ),
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(1);
@@ -167,15 +173,26 @@ class _SingleWebPageState extends State<SingleWebPage> {
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'About Us',
-                            style: TextStyle(
-                              fontSize: 18,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10.0, left: 16.0, bottom: 10),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: const Text(
+                                'Expertise',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  height: 1.2,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 2,
+                        ),
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(2);
@@ -183,15 +200,26 @@ class _SingleWebPageState extends State<SingleWebPage> {
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'Research & Knowledge',
-                            style: TextStyle(
-                              fontSize: 18,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10.0, left: 16.0, bottom: 10),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: const Text(
+                                'About Us',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  height: 1.2,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 3,
+                        ),
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(3);
@@ -199,15 +227,26 @@ class _SingleWebPageState extends State<SingleWebPage> {
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'Careers',
-                            style: TextStyle(
-                              fontSize: 18,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10.0, left: 16.0, bottom: 10),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: const Text(
+                                'Research & Knowledge',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  height: 1.2,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 4,
+                        ),
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(4);
@@ -215,25 +254,129 @@ class _SingleWebPageState extends State<SingleWebPage> {
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'Contact us',
-                            style: TextStyle(
-                              fontSize: 18,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10.0, left: 16.0, bottom: 10),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: const Text(
+                                'Contact us',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  height: 1.2,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 5,
-                          onTap: () {
-                            // Update the state of the app
-                            _onItemTapped(5);
-                            _scrollToTap(5);
-                            // Then close the drawer
-                            Navigator.pop(context);
-                          },
                         ),
                       ],
                     );
+                    // return Column(
+                    //   // Important: Remove any padding from the ListView.
+                    //   //padding: const EdgeInsets.all(16),
+                    //   children: [
+                    //     ListTile(
+                    //       title: const Text(
+                    //         'People',
+                    //         style: TextStyle(
+                    //           fontSize: 18,
+                    //           height: 1.2,
+                    //         ),
+                    //       ),
+                    //       selected: _selectedIndex == 0,
+                    //       onTap: () {
+                    //         // Update the state of the app
+                    //         _onItemTapped(0);
+                    //         _scrollToTap(0);
+                    //         // Then close the drawer
+                    //         Navigator.pop(context);
+                    //       },
+                    //     ),
+                    //     ListTile(
+                    //       title: const Text(
+                    //         'Expertise',
+                    //         style: TextStyle(
+                    //           fontSize: 18,
+                    //         ),
+                    //       ),
+                    //       selected: _selectedIndex == 1,
+                    //       onTap: () {
+                    //         // Update the state of the app
+                    //         _onItemTapped(1);
+                    //         _scrollToTap(1);
+                    //         // Then close the drawer
+                    //         Navigator.pop(context);
+                    //       },
+                    //     ),
+                    //     ListTile(
+                    //       title: const Text(
+                    //         'About Us',
+                    //         style: TextStyle(
+                    //           fontSize: 18,
+                    //         ),
+                    //       ),
+                    //       selected: _selectedIndex == 2,
+                    //       onTap: () {
+                    //         // Update the state of the app
+                    //         _onItemTapped(2);
+                    //         _scrollToTap(2);
+                    //         // Then close the drawer
+                    //         Navigator.pop(context);
+                    //       },
+                    //     ),
+                    //     ListTile(
+                    //       title: const Text(
+                    //         'Research & Knowledge',
+                    //         style: TextStyle(
+                    //           fontSize: 18,
+                    //         ),
+                    //       ),
+                    //       selected: _selectedIndex == 3,
+                    //       onTap: () {
+                    //         // Update the state of the app
+                    //         _onItemTapped(3);
+                    //         _scrollToTap(3);
+                    //         // Then close the drawer
+                    //         Navigator.pop(context);
+                    //       },
+                    //     ),
+                    //     // ListTile(
+                    //     //   title: const Text(
+                    //     //     'Careers',
+                    //     //     style: TextStyle(
+                    //     //       fontSize: 18,
+                    //     //     ),
+                    //     //   ),
+                    //     //   selected: _selectedIndex == 4,
+                    //     //   onTap: () {
+                    //     //     // Update the state of the app
+                    //     //     _onItemTapped(4);
+                    //     //     _scrollToTap(4);
+                    //     //     // Then close the drawer
+                    //     //     Navigator.pop(context);
+                    //     //   },
+                    //     // ),
+                    //     ListTile(
+                    //       title: const Text(
+                    //         'Contact us',
+                    //         style: TextStyle(
+                    //           fontSize: 18,
+                    //         ),
+                    //       ),
+                    //       selected: _selectedIndex == 4,
+                    //       onTap: () {
+                    //         // Update the state of the app
+                    //         _onItemTapped(4);
+                    //         _scrollToTap(4);
+                    //         // Then close the drawer
+                    //         Navigator.pop(context);
+                    //       },
+                    //     ),
+                    //   ],
+                    // );
                   }),
             ),
           ),
@@ -252,6 +395,7 @@ class _SingleWebPageState extends State<SingleWebPage> {
   }
 
   Stack searchPlusComponents(Size s) {
+    String telno = " +91 6362248179";
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -291,7 +435,15 @@ class _SingleWebPageState extends State<SingleWebPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
                         onTap: () {
-                          _scrollToTap(3);
+                          Clipboard.setData(ClipboardData(text: telno)).then(
+                            (_) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Telphone number is copied"),
+                                ),
+                              );
+                            },
+                          );
                         },
                         child: const Icon(
                           Icons.call,
@@ -300,24 +452,27 @@ class _SingleWebPageState extends State<SingleWebPage> {
                         ),
                       ),
                     ),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(8.0),
+                    //   child: InkWell(
+                    //     onTap: () {},
+                    //     child: const Icon(
+                    //       Icons.search,
+                    //       size: 30,
+                    //       color: Colors.black,
+                    //     ),
+                    //   ),
+                    // ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: () {},
-                        child: const Icon(
-                          Icons.search,
+                      child: IconButton(
+                        onPressed: () {
+                          _scaffoldKey.currentState?.openEndDrawer();
+                        },
+                        icon: const Icon(
+                          Icons.menu,
                           size: 30,
-                          color: Colors.black,
                         ),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        _scaffoldKey.currentState?.openEndDrawer();
-                      },
-                      icon: const Icon(
-                        Icons.menu,
-                        size: 32,
                       ),
                     ),
                     SizedBox(

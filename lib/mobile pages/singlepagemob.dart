@@ -8,6 +8,8 @@ import 'package:canvas_legal/web%20pages/bottombar.dart';
 import 'package:canvas_legal/web%20pages/coreteam.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // class MyCustomScrollBehavior extends MaterialScrollBehavior {
 //   // Override behavior methods and getters like dragDevices
@@ -48,7 +50,7 @@ class _SingleMobPageState extends State<SingleMobPage> {
     const MobCorePractice(),
     const MobAboutUs(),
     // const CoreTeamWidget(),
-    // const BottomBarWidget(),
+    //const BottomBarWidget(),
   ];
 
   void _onItemTapped(int index) {
@@ -73,7 +75,7 @@ class _SingleMobPageState extends State<SingleMobPage> {
                     controller: _scrollController,
                     itemCount: _widgetOptions.length,
                     itemBuilder: (context, index) {
-                      return Container(
+                      return SizedBox(
                         width: s.width,
                         child: Stack(
                           children: [
@@ -101,7 +103,11 @@ class _SingleMobPageState extends State<SingleMobPage> {
           ),
           SizedBox(
             height: s.height * 0.3,
-            child: searchPlusComponents(s),
+            child: SearchPlusComponents(
+              context: context,
+              scaffoldKey: _scaffoldKey,
+              s: s,
+            ),
           ),
         ],
       ),
@@ -110,7 +116,7 @@ class _SingleMobPageState extends State<SingleMobPage> {
         child: Align(
           alignment: Alignment.topRight,
           child: Container(
-            width: 200,
+            width: 220,
             height: 200,
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 172, 174, 176),
@@ -120,10 +126,10 @@ class _SingleMobPageState extends State<SingleMobPage> {
               elevation: 0.5,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(20),
-                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                  topLeft: Radius.circular(10),
                 ),
               ),
               child: ListView.builder(
@@ -132,16 +138,10 @@ class _SingleMobPageState extends State<SingleMobPage> {
                     return Column(
                       // Important: Remove any padding from the ListView.
                       //padding: const EdgeInsets.all(15),
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ListTile(
-                          title: const Text(
-                            'People',
-                            style: TextStyle(
-                              fontSize: 12,
-                              height: 1.5,
-                            ),
-                          ),
-                          selected: _selectedIndex == 0,
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(0);
@@ -149,16 +149,26 @@ class _SingleMobPageState extends State<SingleMobPage> {
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'Expertise',
-                            style: TextStyle(
-                              fontSize: 12,
-                              height: 1.5,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(top: 25.0, left: 15.0),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: Text(
+                                'People',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 13,
+                                  height: 0.5,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 1,
+                        ),
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(1);
@@ -166,16 +176,26 @@ class _SingleMobPageState extends State<SingleMobPage> {
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'About Us',
-                            style: TextStyle(
-                              fontSize: 12,
-                              height: 1.5,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(top: 15.0, left: 15.0),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: Text(
+                                'Expertise',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 13,
+                                  height: 0.5,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 2,
+                        ),
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(2);
@@ -183,16 +203,26 @@ class _SingleMobPageState extends State<SingleMobPage> {
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'Research & Knowledge',
-                            style: TextStyle(
-                              fontSize: 12,
-                              height: 1.5,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(top: 15.0, left: 15.0),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: Text(
+                                'About Us',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 13,
+                                  height: 0.5,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 3,
+                        ),
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(3);
@@ -200,41 +230,153 @@ class _SingleMobPageState extends State<SingleMobPage> {
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'Careers',
-                            style: TextStyle(
-                              fontSize: 12,
-                              height: 1.5,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(top: 15.0, left: 15.0),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: Text(
+                                'Research & Knowledge',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 13,
+                                  height: 0.5,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 4,
+                        ),
+                        InkWell(
+                          //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
-                            _onItemTapped(4);
-                            _scrollToTap(4);
+                            _onItemTapped(3);
+                            _scrollToTap(3);
                             // Then close the drawer
                             Navigator.pop(context);
                           },
-                        ),
-                        ListTile(
-                          title: const Text(
-                            'Contact us',
-                            style: TextStyle(
-                              fontSize: 12,
-                              height: 1.5,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(top: 15.0, left: 15.0),
+                            child: SizedBox(
+                              width: s.width * 1.0,
+                              height: 20.0,
+                              child: Text(
+                                'Contact us',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 13,
+                                  height: 0.5,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ),
                           ),
-                          selected: _selectedIndex == 5,
-                          onTap: () {
-                            // Update the state of the app
-                            _onItemTapped(5);
-                            _scrollToTap(5);
-                            // Then close the drawer
-                            Navigator.pop(context);
-                          },
                         ),
+                        // ListTile(
+                        //   title: const Text(
+                        //     'People',
+                        //     style: TextStyle(
+                        //       fontSize: 12,
+                        //       height: 0.5,
+                        //     ),
+                        //   ),
+                        //   selected: _selectedIndex == 0,
+                        //   onTap: () {
+                        //     // Update the state of the app
+                        //     _onItemTapped(0);
+                        //     _scrollToTap(0);
+                        //     // Then close the drawer
+                        //     Navigator.pop(context);
+                        //   },
+                        // ),
+                        // ListTile(
+                        //   title: const Text(
+                        //     'Expertise',
+                        //     style: TextStyle(
+                        //       fontSize: 12,
+                        //       height: 1.5,
+                        //     ),
+                        //   ),
+                        //   selected: _selectedIndex == 1,
+                        //   onTap: () {
+                        //     // Update the state of the app
+                        //     _onItemTapped(1);
+                        //     _scrollToTap(1);
+                        //     // Then close the drawer
+                        //     Navigator.pop(context);
+                        //   },
+                        // ),
+                        // ListTile(
+                        //   title: const Text(
+                        //     'About Us',
+                        //     style: TextStyle(
+                        //       fontSize: 12,
+                        //       height: 1.5,
+                        //     ),
+                        //   ),
+                        //   selected: _selectedIndex == 2,
+                        //   onTap: () {
+                        //     // Update the state of the app
+                        //     _onItemTapped(2);
+                        //     _scrollToTap(2);
+                        //     // Then close the drawer
+                        //     Navigator.pop(context);
+                        //   },
+                        // ),
+                        // ListTile(
+                        //   title: const Text(
+                        //     'Research & Knowledge',
+                        //     style: TextStyle(
+                        //       fontSize: 12,
+                        //       height: 1.5,
+                        //     ),
+                        //   ),
+                        //   selected: _selectedIndex == 3,
+                        //   onTap: () {
+                        //     // Update the state of the app
+                        //     _onItemTapped(3);
+                        //     _scrollToTap(3);
+                        //     // Then close the drawer
+                        //     Navigator.pop(context);
+                        //   },
+                        // ),
+                        // ListTile(
+                        //   title: const Text(
+                        //     'Careers',
+                        //     style: TextStyle(
+                        //       fontSize: 12,
+                        //       height: 1.5,
+                        //     ),
+                        //   ),
+                        //   selected: _selectedIndex == 4,
+                        //   onTap: () {
+                        //     // Update the state of the app
+                        //     _onItemTapped(4);
+                        //     _scrollToTap(4);
+                        //     // Then close the drawer
+                        //     Navigator.pop(context);
+                        //   },
+                        // ),
+                        // ListTile(
+                        //   title: const Text(
+                        //     'Contact us',
+                        //     style: TextStyle(
+                        //       fontSize: 12,
+                        //       height: 1.5,
+                        //     ),
+                        //   ),
+                        //   selected: _selectedIndex == 5,
+                        //   onTap: () {
+                        //     // Update the state of the app
+                        //     _onItemTapped(5);
+                        //     _scrollToTap(5);
+                        //     // Then close the drawer
+                        //     Navigator.pop(context);
+                        //   },
+                        // ),
                       ],
                     );
                   }),
@@ -253,8 +395,29 @@ class _SingleMobPageState extends State<SingleMobPage> {
       ),
     );
   }
+}
 
-  Stack searchPlusComponents(Size s) {
+class SearchPlusComponents extends StatefulWidget {
+  const SearchPlusComponents({
+    super.key,
+    required this.context,
+    required GlobalKey<ScaffoldState> scaffoldKey,
+    required this.s,
+  }) : _scaffoldKey = scaffoldKey;
+
+  final BuildContext context;
+  final GlobalKey<ScaffoldState> _scaffoldKey;
+  final Size s;
+
+  @override
+  State<SearchPlusComponents> createState() => _SearchPlusComponentsState();
+}
+
+class _SearchPlusComponentsState extends State<SearchPlusComponents> {
+  @override
+  Widget build(BuildContext context) {
+    String telno = " +91 6362248179";
+
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -266,7 +429,7 @@ class _SingleMobPageState extends State<SingleMobPage> {
         Positioned(
           top: 30,
           child: Container(
-            width: s.width * 0.9,
+            width: widget.s.width * 0.9,
             height: 35,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -294,7 +457,15 @@ class _SingleMobPageState extends State<SingleMobPage> {
                       padding: const EdgeInsets.all(4.0),
                       child: InkWell(
                         onTap: () {
-                          _scrollToTap(3);
+                          Clipboard.setData(ClipboardData(text: telno)).then(
+                            (_) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Telphone number is copied"),
+                                ),
+                              );
+                            },
+                          );
                         },
                         child: const Icon(
                           Icons.call,
@@ -303,20 +474,20 @@ class _SingleMobPageState extends State<SingleMobPage> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: InkWell(
-                        onTap: () {},
-                        child: const Icon(
-                          Icons.search,
-                          size: 15,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(4.0),
+                    //   child: InkWell(
+                    //     onTap: () {},
+                    //     child: const Icon(
+                    //       Icons.search,
+                    //       size: 15,
+                    //       color: Colors.black,
+                    //     ),
+                    //   ),
+                    // ),
                     IconButton(
                       onPressed: () {
-                        _scaffoldKey.currentState?.openEndDrawer();
+                        widget._scaffoldKey.currentState?.openEndDrawer();
                       },
                       icon: const Icon(
                         Icons.menu,
@@ -324,7 +495,7 @@ class _SingleMobPageState extends State<SingleMobPage> {
                       ),
                     ),
                     SizedBox(
-                      width: s.width * 0.01,
+                      width: widget.s.width * 0.01,
                     )
                   ],
                 ),

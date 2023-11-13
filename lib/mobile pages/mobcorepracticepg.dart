@@ -106,8 +106,11 @@ class _MobCorePracticeItemsState extends State<MobCorePracticeItems> {
                   child: Row(
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsets.only(top: 18, left: 6, right: 6),
+                        padding: const EdgeInsets.only(
+                          top: 18,
+                          // left: 1.5,
+                          // right: 1.5,
+                        ),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: IconButton(
@@ -156,7 +159,11 @@ class _MobCorePracticeItemsState extends State<MobCorePracticeItems> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 18, left: 6, right: 6),
+                  padding: const EdgeInsets.only(
+                    top: 18,
+                    // left: 1.5,
+                    // right: 1.5,
+                  ),
                   child: Align(
                     alignment: Alignment.topRight,
                     child: IconButton(

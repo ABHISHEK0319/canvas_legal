@@ -17,6 +17,7 @@ class _SinglePageWebConnectionState extends State<SinglePageWebConnection> {
     return const ResponsiveWidget(
       largeScreen: SingleWebPage(),
       smallScreen: SingleMobPage(),
+      // mediumScreen: SingleMobPage(),
     );
   }
 }
