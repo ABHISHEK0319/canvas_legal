@@ -13,27 +13,26 @@ class _PeoplePageState extends State<PeoplePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        Stack(
-          children: [
-            // ....top part....
-            Container(
-              padding: const EdgeInsets.only(top: 120),
-              child: Row(
-                children: [
-                  topLeftPartWidget(size),
+    return Container(
+      //height: (MediaQuery.of(context).size.height),
+      width: (MediaQuery.of(context).size.width),
+      //color: Colors.red,
+      child: Stack(
+        children: [
+          // ....top part....
+          Container(
+            padding: const EdgeInsets.only(top: 120),
+            child: Row(
+              children: [
+                topLeftPartWidget(size),
 
-                  // ....Right side top work
-                  rightContainedWidget(size),
-                ],
-              ),
+                // ....Right side top work
+                rightContainedWidget(size),
+              ],
             ),
-          ],
-        ),
-        // Here Define Core Team.....
-        //const CoreTeam(),
-      ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -45,14 +44,14 @@ class _PeoplePageState extends State<PeoplePage> {
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(height: size.height * 0.20),
-          const FittedBox(
+          FittedBox(
             child: Text(
               "Crafting Legal Excellence",
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: 'ButlerRegular',
                 fontWeight: FontWeight.w700,
-                fontSize: 48,
+                fontSize: size.height * 0.08,
               ),
             ),
           ),
@@ -72,14 +71,14 @@ class _PeoplePageState extends State<PeoplePage> {
                   ),
                   // child: Image.asset("HammerWithbook.png"),
                 ),
-                const Text(
+                Text(
                   "\n One Case at a Time",
                   style: TextStyle(
                     height: 0.45,
                     color: Colors.black,
                     fontFamily: 'ButlerRegular',
                     fontWeight: FontWeight.w700,
-                    fontSize: 48,
+                    fontSize: size.height * 0.08,
                   ),
                 ),
               ],
@@ -106,6 +105,7 @@ class _PeoplePageState extends State<PeoplePage> {
             height: 40,
             // width: size.width * 0.11,
             margin: const EdgeInsets.only(left: 35),
+
             child: ElevatedButton(
               onPressed: () {
                 showModalBottomSheet(
@@ -205,7 +205,7 @@ class _PeoplePageState extends State<PeoplePage> {
 
           Container(
             /// height: size.height * 0.7,
-            margin: const EdgeInsets.only(top: 80),
+            margin: const EdgeInsets.only(top: 30),
             decoration: const BoxDecoration(
               //shape: BoxShape.circle,
               image: DecorationImage(

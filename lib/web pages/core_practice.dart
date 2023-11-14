@@ -1,3 +1,4 @@
+import 'package:canvas_legal/responsiveclass.dart';
 import 'package:flutter/material.dart';
 import 'package:canvas_legal/constant/colors.dart';
 
@@ -17,45 +18,91 @@ class _CorePracticeState extends State<CorePractice> {
     return Container(
       //
       //
-      //color: Colors.red,
-      //height: size.height,
+      //color: Colors.green,
+      height: (MediaQuery.of(context).size.height),
+      width: (MediaQuery.of(context).size.width),
+      //width: size.width,
+      //padding: const EdgeInsets.only(top: 150),
+      child: ResponsiveWidget(
+        largeScreen: fullscreenCorePractice(size),
+        mediumScreen: halfscreenCorePractice(size),
+      ),
+    );
+  }
 
-      width: size.width,
-      padding: const EdgeInsets.only(top: 150),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 60.0, top: 5),
-            child: RichText(
-              text: TextSpan(
-                text: 'Core ',
-                style: const TextStyle(
+// full screen of core practice............................
+  Widget fullscreenCorePractice(Size size) {
+    return Column(
+      children: [
+        const SizedBox(
+          height: 120,
+        ),
+        RichText(
+          text: TextSpan(
+            text: 'Core ',
+            style: const TextStyle(
+              fontFamily: "ButlerRegular",
+              color: Colors.black,
+              fontSize: 50,
+              fontWeight: FontWeight.w700,
+            ),
+            children: <TextSpan>[
+              TextSpan(
+                text: 'Practices',
+                style: TextStyle(
                   fontFamily: "ButlerRegular",
-                  color: Colors.black,
+                  color: CanvasLegalColors.Blue[1],
                   fontSize: 50,
                   fontWeight: FontWeight.w700,
                 ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'Practices',
-                    style: TextStyle(
-                      fontFamily: "ButlerRegular",
-                      color: CanvasLegalColors.Blue[1],
-                      fontSize: 50,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ],
               ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: size.height * 0.722,
+          child: const CorePracticeItems(),
+        ),
+        // const AboutUs(),
+      ],
+    );
+  }
+
+  // half screen of core practice...................
+  Widget halfscreenCorePractice(Size size) {
+    return Column(
+      children: [
+        const SizedBox(
+          height: 120,
+        ),
+        RichText(
+          text: TextSpan(
+            text: 'Core ',
+            style: const TextStyle(
+              fontFamily: "ButlerRegular",
+              color: Colors.black,
+              fontSize: 50,
+              fontWeight: FontWeight.w700,
             ),
+            children: <TextSpan>[
+              TextSpan(
+                text: 'Practices',
+                style: TextStyle(
+                  fontFamily: "ButlerRegular",
+                  color: CanvasLegalColors.Blue[1],
+                  fontSize: 50,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
           ),
-          SizedBox(
-            height: size.height * 0.8,
-            child: const CorePracticeItems(),
-          ),
-          // const AboutUs(),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: size.height * 0.70,
+          child: const CorePracticeItems(),
+        ),
+        // const AboutUs(),
+      ],
     );
   }
 }
@@ -103,7 +150,7 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
 
   void scrollLeft() {
     scrollController.animateTo(
-      scrollController.offset - 700, // Adjust the value as needed
+      scrollController.offset - 690, // Adjust the value as needed
 
       duration:
           const Duration(milliseconds: 500), // You can adjust the duration
@@ -113,7 +160,7 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
 
   void scrollRight() {
     scrollController.animateTo(
-      scrollController.offset + 700, // Adjust the value as needed
+      scrollController.offset + 690, // Adjust the value as needed
       duration:
           const Duration(milliseconds: 500), // You can adjust the duration
       curve: Curves.easeInOut,
@@ -122,100 +169,105 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        //color: Colors.amber,
-        // height: 250,
-        constraints: const BoxConstraints.expand(),
-        child: Stack(
-          //alignment: Alignment.center,
-          children: <Widget>[
-            Row(
-              children: [
-                Expanded(
-                  //flex: 1,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 40, left: 10, right: 10),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: IconButton(
-                            onPressed: scrollLeft,
-                            icon: const Icon(
-                              Icons.arrow_back_ios_new_rounded,
-                              color: Colors.black,
-                              size: 30,
-                            ),
-                          ),
+    return Stack(
+      //alignment: Alignment.center,
+      children: <Widget>[
+        Positioned(
+          bottom: 0.0,
+          child: Image.asset(
+            "assets/1x/Core practice shape.png",
+            //height: 50,
+          ),
+        ),
+        Row(
+          children: [
+            Expanded(
+              //flex: 1,
+              child: Row(
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 60, left: 10, right: 10),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: IconButton(
+                        onPressed: scrollLeft,
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: Colors.black,
+                          size: 30,
                         ),
-                      ),
-                      Expanded(
-                        child: CustomScrollView(
-                          //reverse: true,
-
-                          controller: scrollController,
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-
-                          slivers: <Widget>[
-                            SliverPadding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 0.0),
-                              sliver: SliverList(
-                                delegate: SliverChildBuilderDelegate(
-                                  (context, index) => Row(
-                                    children: [
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: listcoreitem,
-                                      ),
-                                    ],
-                                  ),
-                                  //childCount: 10,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 40, left: 10, right: 10),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                      onPressed: scrollRight,
-                      icon: const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: Colors.black,
-                        size: 30,
                       ),
                     ),
                   ),
-                ),
-                // const SizedBox(
-                //   height: 120,
-                // )
-              ],
-            ),
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(left: 45, right: 45, top: 60),
+                      child: CustomScrollView(
+                        //reverse: true,
 
-            //const SizedBox(height: 140),
-            Positioned(
-              bottom: 0.0,
-              child: Image.asset("assets/1x/Core practice shape.png"),
-            )
-            // AnimatedBuilder(
-            //   animation: _controller,
-            //   builder: _buildAnimation,
-            // ),
+                        controller: scrollController,
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+
+                        slivers: <Widget>[
+                          SliverPadding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 0.0,
+                            ),
+                            sliver: SliverList(
+                              delegate: SliverChildBuilderDelegate(
+                                (context, index) => Row(
+                                  children: [
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: listcoreitem,
+                                    ),
+                                  ],
+                                ),
+                                childCount: listcoreitem.length,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 60, left: 10, right: 10),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  onPressed: scrollRight,
+                  icon: const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                ),
+              ),
+            ),
+            // const SizedBox(
+            //   height: 120,
+            // )
           ],
-        ));
+        ),
+
+        //const SizedBox(height: 140),
+
+        // AnimatedBuilder(
+        //   animation: _controller,
+        //   builder: _buildAnimation,
+        // ),
+      ],
+    );
   }
 }
 
@@ -254,7 +306,7 @@ class IconAndText extends StatelessWidget {
 // List of items Widget define
 
 List<Widget> listcoreitem = <Widget>[
-  const SizedBox(width: 40),
+  const SizedBox(width: 60),
   const IconAndText(
     icon: 'assets/images/Asset 1.png',
     title: 'Dispute \nResolution',
@@ -304,5 +356,11 @@ List<Widget> listcoreitem = <Widget>[
     icon: 'assets/images/Asset 10.png',
     title: 'NRI \nServices',
   ),
-  const SizedBox(width: 40),
+
+  Container(
+    width: 1,
+    height: 40,
+    color: Colors.black,
+  )
+  //const SizedBox(width: 40),
 ].toList();

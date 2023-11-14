@@ -4,23 +4,13 @@ import 'package:canvas_legal/constant/colors.dart';
 import 'package:canvas_legal/web%20pages/aboutus.dart';
 import 'package:canvas_legal/web%20pages/bottombar.dart';
 import 'package:canvas_legal/web%20pages/coreteam.dart';
-
 import 'package:canvas_legal/web%20pages/people.dart';
-// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'core_practice.dart';
 
-// class MyCustomScrollBehavior extends MaterialScrollBehavior {
-//   // Override behavior methods and getters like dragDevices
-//   @override
-//   Set<PointerDeviceKind> get dragDevices => {
-//         PointerDeviceKind.touch,
-//         PointerDeviceKind.mouse,
-//         // etc.
-//       };
-// }
+BuildContext context = context;
 
 class SingleWebPage extends StatefulWidget {
   const SingleWebPage({super.key});
@@ -31,11 +21,13 @@ class SingleWebPage extends StatefulWidget {
 
 class _SingleWebPageState extends State<SingleWebPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  final _containerHeight = 720.0;
+  final _containerHeight = 650.0;
+
+  int _selectedIndex = 0;
+  // static const TextStyle optionStyle =
+  //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
   final ScrollController _scrollController = ScrollController();
 
   void _scrollToTap(int index) {
@@ -76,7 +68,7 @@ class _SingleWebPageState extends State<SingleWebPage> {
                     controller: _scrollController,
                     itemCount: _widgetOptions.length,
                     itemBuilder: (context, index) {
-                      return Container(
+                      return SizedBox(
                         width: s.width,
                         child: Stack(
                           children: [
@@ -104,7 +96,7 @@ class _SingleWebPageState extends State<SingleWebPage> {
           ),
           SizedBox(
             height: s.height * 0.3,
-            child: searchPlusComponents(s),
+            child: searchPlusComponents(s, context),
           ),
         ],
       ),
@@ -394,14 +386,15 @@ class _SingleWebPageState extends State<SingleWebPage> {
     );
   }
 
-  Stack searchPlusComponents(Size s) {
+  Stack searchPlusComponents(Size s, context) {
     String telno = " +91 6362248179";
     return Stack(
       alignment: Alignment.topCenter,
       children: [
         Container(
           width: double.infinity,
-          height: 50,
+          // height: 50,
+          height: s.height * 0.08,
           color: const Color(0xFF005067),
         ),
         Positioned(

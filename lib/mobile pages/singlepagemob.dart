@@ -1,11 +1,12 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:canvas_legal/constant/colors.dart';
+import 'package:canvas_legal/mobile%20pages/mob_bottom.dart';
+import 'package:canvas_legal/mobile%20pages/mob_coreteam.dart';
 import 'package:canvas_legal/mobile%20pages/mobaboutus.dart';
 import 'package:canvas_legal/mobile%20pages/mobcorepracticepg.dart';
+import 'package:canvas_legal/mobile%20pages/mobcoreteam.dart';
 import 'package:canvas_legal/mobile%20pages/mobpeoplepg.dart';
-import 'package:canvas_legal/web%20pages/bottombar.dart';
-import 'package:canvas_legal/web%20pages/coreteam.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -34,7 +35,7 @@ class _SingleMobPageState extends State<SingleMobPage> {
   // static const TextStyle optionStyle =
   //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  final _containerHeight = 465.0;
+  final _containerHeight = 450.0;
   final ScrollController _scrollController = ScrollController();
 
   void _scrollToTap(int index) {
@@ -49,8 +50,8 @@ class _SingleMobPageState extends State<SingleMobPage> {
     const MobPeoplePage(),
     const MobCorePractice(),
     const MobAboutUs(),
-    // const CoreTeamWidget(),
-    //const BottomBarWidget(),
+    const MobCoreTeamWidget(),
+    const BottomBarMobWidget(),
   ];
 
   void _onItemTapped(int index) {

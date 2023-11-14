@@ -1,4 +1,5 @@
 import 'package:canvas_legal/connect%20responsive%20widgets/singlepgeconnection.dart';
+import 'package:canvas_legal/demo/dynamic_size.dart';
 import 'package:flutter/material.dart';
 
 void main() {

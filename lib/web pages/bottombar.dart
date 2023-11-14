@@ -19,7 +19,7 @@ class BottomBarWidget extends StatelessWidget {
             const TextStyle(color: Colors.black, fontSize: 12, height: 2.0);
 
     var widgetbottom = ResponsiveWidget(
-      largeScreen: largeWidget(styletitle, txtstyle),
+      largeScreen: largeWidget(styletitle, txtstyle, size),
       mediumScreen: smallWidget(styletitle, txtstyle),
       //mediumScreen: ,
     );
@@ -27,104 +27,113 @@ class BottomBarWidget extends StatelessWidget {
     return widgetbottom;
   }
 
-  Container largeWidget(TextStyle styletitle, TextStyle txtstyle) {
+  Container largeWidget(TextStyle styletitle, TextStyle txtstyle, size) {
     return Container(
       //color: Colors.green,
-      height: 300,
-      padding: const EdgeInsets.only(top: 40),
+      height: 324,
+
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/Logo.png",
-                        height: 72,
-                      ),
-                      Container(
-                        // color: Colors.black,
-                        width: 5.0,
-                        //height: 320,
-                        margin: const EdgeInsets.only(left: 25, right: 25),
-                      ),
-                      const DetailOfCompany()
-                    ],
-                  ),
-                ],
-              ),
-              Container(
-                color: Colors.black,
-                width: 1,
-                height: 220,
-                margin: const EdgeInsets.only(left: 110, right: 80),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 80, right: 40),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          Image.asset(
+            "assets/1x/Core Team Down Shape.png",
+            width: size.width,
+            height: size.height * 0.035,
+            fit: BoxFit.fill,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    Row(
                       children: [
-                        Text(
-                          "Facility",
-                          style: styletitle,
-                          textAlign: TextAlign.start,
+                        Image.asset(
+                          "assets/images/Logo.png",
+                          height: 72,
                         ),
-                      ],
-                    ),
-                    const SizedBox(width: 45),
-                    Column(
-                      children: [
-                        Text(
-                          "Support",
-                          style: styletitle,
-                          textAlign: TextAlign.start,
+                        Container(
+                          // color: Colors.black,
+                          width: 5.0,
+                          //height: 320,
+                          margin: const EdgeInsets.only(left: 25, right: 25),
                         ),
-                        Text.rich(
-                          TextSpan(
-                            children: [
-                              TextSpan(
-                                text: '\nAbout Us',
-                                style: txtstyle,
-                              ),
-                              TextSpan(
-                                text: '\nFAQs',
-                                style: txtstyle,
-                              ),
-                              TextSpan(
-                                text: '\nPrivacy policy',
-                                style: txtstyle,
-                              ),
-                              TextSpan(
-                                text: '\nHelp Me',
-                                style: txtstyle,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 45),
-                    Column(
-                      children: [
-                        Text(
-                          "Service",
-                          style: styletitle,
-                          textAlign: TextAlign.start,
-                        ),
+                        const DetailOfCompany()
                       ],
                     ),
                   ],
                 ),
-              )
-            ],
+                Container(
+                  color: Colors.black,
+                  width: 1,
+                  height: 220,
+                  margin: const EdgeInsets.only(left: 110, right: 80),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 80, right: 40),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Facility",
+                            style: styletitle,
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(width: 45),
+                      Column(
+                        children: [
+                          Text(
+                            "Support",
+                            style: styletitle,
+                            textAlign: TextAlign.start,
+                          ),
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: '\nAbout Us',
+                                  style: txtstyle,
+                                ),
+                                TextSpan(
+                                  text: '\nFAQs',
+                                  style: txtstyle,
+                                ),
+                                TextSpan(
+                                  text: '\nPrivacy policy',
+                                  style: txtstyle,
+                                ),
+                                TextSpan(
+                                  text: '\nHelp Me',
+                                  style: txtstyle,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(width: 45),
+                      Column(
+                        children: [
+                          Text(
+                            "Service",
+                            style: styletitle,
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
 
           // term privacy policy....
