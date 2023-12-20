@@ -60,6 +60,8 @@ class _CorePracticeState extends State<CorePractice> {
           ),
         ),
         const Expanded(
+          flex: 2,
+
           ///height: size.height * 0.722,
           child: CorePracticeItems(),
         ),
@@ -175,13 +177,11 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
     return Stack(
       //alignment: Alignment.center,
       children: <Widget>[
-        Expanded(
-          child: Positioned(
-            bottom: 0.0,
-            child: Image.asset(
-              "assets/1x/Core practice shape.png",
-              //height: 50,
-            ),
+        Positioned(
+          bottom: 0.0,
+          child: Image.asset(
+            "assets/1x/Core practice shape.png",
+            //height: 50,
           ),
         ),
         Row(
