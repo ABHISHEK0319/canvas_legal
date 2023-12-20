@@ -1,6 +1,7 @@
 import 'package:canvas_legal/constant/colors.dart';
 import 'package:canvas_legal/responsiveclass.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BottomBarWidget extends StatelessWidget {
   const BottomBarWidget({super.key});
@@ -12,11 +13,14 @@ class BottomBarWidget extends StatelessWidget {
           color: Colors.black,
           fontSize: 22,
           fontWeight: FontWeight.w600,
-          //fontFamily: "ButlerBold",
+          fontFamily: "ButlerBlack",
           height: 0.7,
         ),
-        txtstyle =
-            const TextStyle(color: Colors.black, fontSize: 12, height: 2.0);
+        txtstyle = GoogleFonts.montserrat(
+          color: Colors.black,
+          fontSize: 12,
+          height: 2.0,
+        );
 
     var widgetbottom = ResponsiveWidget(
       largeScreen: largeWidget(styletitle, txtstyle, size),
@@ -30,7 +34,7 @@ class BottomBarWidget extends StatelessWidget {
   Container largeWidget(TextStyle styletitle, TextStyle txtstyle, size) {
     return Container(
       //color: Colors.green,
-      height: 324,
+      //height: 324,
 
       child: Column(
         children: [
@@ -144,11 +148,12 @@ class BottomBarWidget extends StatelessWidget {
             width: double.infinity,
             height: 40,
             padding: const EdgeInsets.only(top: 12.0, right: 80, bottom: 12.0),
-            child: const Text(
+            child: Text(
               "TERM PRIVACY POLICY",
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 color: Colors.white,
                 fontSize: 15,
+                //fontFamily: "ButlerBlack",
               ),
             ),
           ),
@@ -266,14 +271,16 @@ class DetailOfCompany extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle titleStyle = const TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-            height: 0.7),
-        subtxtStyle = const TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+          height: 0.7,
+          fontFamily: "ButlerBlack",
+        ),
+        subtxtStyle = GoogleFonts.montserrat(
             color: Colors.black, fontSize: 12, fontWeight: FontWeight.bold),
-        txtstyle =
-            const TextStyle(color: Colors.black, fontSize: 11, height: 1.0);
+        txtstyle = GoogleFonts.montserrat(
+            color: Colors.black, fontSize: 12, height: 1.0, fontWeight: FontWeight.w500);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -285,11 +292,11 @@ class DetailOfCompany extends StatelessWidget {
           textAlign: TextAlign.start,
         ),
         const SizedBox(height: 10),
-        const Text(
+        Text(
           """4th Floor, Classic Arena, Hosur Rd,
             \nAECS Layout - A Block, Singasandra,
             \nBengaluru 560068""",
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             height: 0.5,
             //fontFamily: "ButlerRegular",
             color: Colors.black,
@@ -343,12 +350,13 @@ class DetailOfCompany extends StatelessWidget {
         const SizedBox(height: 15),
         Column(
           children: [
-            const Text(
+            Text(
               'Follow Us',
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 12,
+                // fontFamily: "ButlerBlack",
               ),
             ),
             const SizedBox(height: 5),

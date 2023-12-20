@@ -1,4 +1,5 @@
 import 'package:canvas_legal/constant/stringfile.dart';
+import 'package:canvas_legal/responsiveclass.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -59,17 +60,31 @@ class _PeoplePageState extends State<PeoplePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: size.width * 0.11,
-                  height: size.height * 0.05,
-                  margin: const EdgeInsets.only(
-                    left: 35,
+                ResponsiveWidget(
+                  largeScreen: Container(
+                    width: size.width * 0.11,
+                    height: size.height * 0.05,
+                    margin: const EdgeInsets.only(
+                      left: 35,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF005067),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    // child: Image.asset("HammerWithbook.png"),
                   ),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF005067),
-                    borderRadius: BorderRadius.circular(50),
+                  mediumScreen: Container(
+                    width: 220,
+                    height: size.height * 0.05,
+                    margin: const EdgeInsets.only(
+                      left: 35,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF005067),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    // child: Image.asset("HammerWithbook.png"),
                   ),
-                  // child: Image.asset("HammerWithbook.png"),
                 ),
                 Text(
                   "\n One Case at a Time",

@@ -1,5 +1,4 @@
 import 'package:canvas_legal/connect%20responsive%20widgets/singlepgeconnection.dart';
-import 'package:canvas_legal/demo/dynamic_size.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,6 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:
+          //const AbhishekAboutUs(),
           //SingleWebPage(),
           const SinglePageWebConnection(),
     );

@@ -93,138 +93,132 @@ class _MobCorePracticeItemsState extends State<MobCorePracticeItems> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 200,
+      height: 200,
 
-        //constraints: const BoxConstraints.expand(),
-        child: Stack(
-          //alignment: Alignment.center,
-          children: <Widget>[
-            Row(
-              children: [
-                Expanded(
-                  //flex: 1,
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 18,
-                          // left: 1.5,
-                          // right: 1.5,
-                        ),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: IconButton(
-                            onPressed: scrollLeft,
-                            icon: const Icon(
-                              Icons.arrow_back_ios_new_rounded,
-                              color: Colors.black,
-                              size: 15,
-                            ),
+      //constraints: const BoxConstraints.expand(),
+      child: Stack(
+        //alignment: Alignment.center,
+        children: <Widget>[
+          Positioned(
+            bottom: 0.0,
+            child: Image.asset(
+              "assets/1x/Core practice shape.png",
+              //height: 80,
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.fitWidth,
+            ),
+          ),
+          Row(
+            children: [
+              Expanded(
+                //flex: 1,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 18,
+                        // left: 1.5,
+                        // right: 1.5,
+                      ),
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: IconButton(
+                          onPressed: scrollLeft,
+                          icon: const Icon(
+                            Icons.arrow_back_ios_new_rounded,
+                            color: Colors.black,
+                            size: 15,
                           ),
                         ),
                       ),
-                      Expanded(
-                        child: CustomScrollView(
-                          //reverse: true,
-
-                          controller: scrollController,
-                          scrollDirection: Axis.horizontal,
-                          // shrinkWrap: true,
-
-                          slivers: <Widget>[
-                            SliverPadding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 0.0),
-                              sliver: SliverList(
-                                delegate: SliverChildBuilderDelegate(
-                                  (context, index) => Row(
-                                    children: [
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: listcoreitem,
-                                      ),
-                                    ],
-                                  ),
-                                  //childCount: 10,
+                    ),
+                    Expanded(
+                      child: CustomScrollView(
+                        controller: scrollController,
+                        scrollDirection: Axis.horizontal,
+                        slivers: <Widget>[
+                          SliverPadding(
+                            padding: const EdgeInsets.symmetric(vertical: 0.0),
+                            sliver: SliverList(
+                              delegate: SliverChildBuilderDelegate(
+                                (context, index) => Row(
+                                  children: [
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: listcoreitem,
+                                    ),
+                                  ],
                                 ),
+                                //childCount: 10,
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 18,
-                    // left: 1.5,
-                    // right: 1.5,
-                  ),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                      onPressed: scrollRight,
-                      icon: const Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: Colors.black,
-                        size: 15,
-                      ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 18,
+                ),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    onPressed: scrollRight,
+                    icon: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Colors.black,
+                      size: 15,
                     ),
                   ),
                 ),
-                // const SizedBox(
-                //   height: 50,
-                // )
-              ],
-            ),
-            // const SizedBox(height: 30),
-            Positioned(
-              bottom: 0.0,
-              //top: MediaQuery.of(context).size.height * 0.13,
-              child: Image.asset(
-                "assets/1x/Core practice shape.png",
-                //height: 80,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.fitWidth,
               ),
-            )
-          ],
-        ));
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
 class IconAndText extends StatelessWidget {
   final String icon, title;
-  const IconAndText({
+  VoidCallback coreItemClick;
+  IconAndText({
     Key? key,
     required this.icon,
     required this.title,
+    required this.coreItemClick,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          icon,
-          height: 45,
-        ),
-        const SizedBox(height: 15),
-        Text(
-          title,
-          style: const TextStyle(
-            fontFamily: 'ButlerRegular',
-            fontSize: 12,
-            fontWeight: FontWeight.w800,
-            color: Colors.black,
+    return InkWell(
+      onTap: coreItemClick,
+      child: Column(
+        children: [
+          Image.asset(
+            icon,
+            height: 45,
           ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+          const SizedBox(height: 15),
+          Text(
+            title,
+            style: const TextStyle(
+              fontFamily: 'ButlerRegular',
+              fontSize: 12,
+              fontWeight: FontWeight.w800,
+              color: Colors.black,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -233,54 +227,64 @@ class IconAndText extends StatelessWidget {
 
 List<Widget> listcoreitem = <Widget>[
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 1.png',
     title: 'Dispute \nResolution',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 2.png',
     title: 'Real Estate \nAnd Construction',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 3.png',
     title: 'Corporate \n& Commercial',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 4.png',
     title: 'Corporate \nSecretarial',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 5.png',
     title: 'white \nCollar Crime',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 6.png',
     title: 'Employment',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 7.png',
     title: 'Start-Ups',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 8.png',
     title: 'Intellectual \nProperty',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 9.png',
     title: 'Data Protection \n& Privary',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 10.png',
     title: 'NRI \nServices',
+    coreItemClick: () {},
   ),
   const SizedBox(width: 10),
 ].toList();

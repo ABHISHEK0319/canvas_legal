@@ -1,8 +1,9 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:canvas_legal/constant/colors.dart';
+import 'package:canvas_legal/customs/popupcallmenu.dart';
 import 'package:canvas_legal/mobile%20pages/mob_bottom.dart';
-import 'package:canvas_legal/mobile%20pages/mob_coreteam.dart';
+
 import 'package:canvas_legal/mobile%20pages/mobaboutus.dart';
 import 'package:canvas_legal/mobile%20pages/mobcorepracticepg.dart';
 import 'package:canvas_legal/mobile%20pages/mobcoreteam.dart';
@@ -421,8 +422,6 @@ class SearchPlusComponents extends StatefulWidget {
 class _SearchPlusComponentsState extends State<SearchPlusComponents> {
   @override
   Widget build(BuildContext context) {
-    String telno = " +91 6362248179";
-
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -458,27 +457,31 @@ class _SearchPlusComponentsState extends State<SearchPlusComponents> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: InkWell(
-                        onTap: () {
-                          Clipboard.setData(ClipboardData(text: telno)).then(
-                            (_) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text("Telphone number is copied"),
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        child: const Icon(
-                          Icons.call,
-                          size: 15,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
+                    const InkWell(
+                        child: PopupCallMenu(
+                      iconsize: 15,
+                    )),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(4.0),
+                    //   child: InkWell(
+                    //     onTap: () {
+                    //       Clipboard.setData(ClipboardData(text: telno)).then(
+                    //         (_) {
+                    //           ScaffoldMessenger.of(context).showSnackBar(
+                    //             const SnackBar(
+                    //               content: Text("Telphone number is copied"),
+                    //             ),
+                    //           );
+                    //         },
+                    //       );
+                    //     },
+                    //     child: const Icon(
+                    //       Icons.call,
+                    //       size: 15,
+                    //       color: Colors.black,
+                    //     ),
+                    //   ),
+                    // ),
                     // Padding(
                     //   padding: const EdgeInsets.all(4.0),
                     //   child: InkWell(

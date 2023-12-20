@@ -5,21 +5,21 @@ import 'package:canvas_legal/customs/popupcallmenu.dart';
 
 import 'package:canvas_legal/web%20pages/aboutus.dart';
 import 'package:canvas_legal/web%20pages/bottombar.dart';
+import 'package:canvas_legal/web%20pages/core_practice.dart';
 import 'package:canvas_legal/web%20pages/coreteam.dart';
 import 'package:canvas_legal/web%20pages/people.dart';
 import 'package:flutter/material.dart';
-import 'core_practice.dart';
 
 BuildContext context = context;
 
-class SingleWebPage extends StatefulWidget {
-  const SingleWebPage({super.key});
+class SingleWebPagedemo extends StatefulWidget {
+  const SingleWebPagedemo({super.key});
 
   @override
-  State<SingleWebPage> createState() => _SingleWebPageState();
+  State<SingleWebPagedemo> createState() => _SingleWebPagedemoState();
 }
 
-class _SingleWebPageState extends State<SingleWebPage> {
+class _SingleWebPagedemoState extends State<SingleWebPagedemo> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final _containerHeight = 650.0;
@@ -38,13 +38,23 @@ class _SingleWebPageState extends State<SingleWebPage> {
     );
   }
 
-  final itemkey = GlobalKey();
+  GlobalKey<FormState> itemkey = GlobalKey<FormState>();
 
-  Future scrollToItem() async {
-    final context = itemkey.currentContext!;
+  Future scrollToItem(int index) async {
+    //final context = itemkey.currentContext!;
+    final context = GlobalObjectKey(_widgetOptions[index]).currentContext!;
 
     await Scrollable.ensureVisible(context);
   }
+//  Widget _widgets = Column(
+//     children: [
+//       Container( key: itemkey,  child: const PeoplePage()),
+//       CorePractice(),
+//       AboutUs(),
+//       CoreTeamWidget(),
+//       BottomBarWidget(),
+//     ],
+//   );
 
   final List<Widget> _widgetOptions = <Widget>[
     const PeoplePage(),
@@ -102,6 +112,7 @@ class _SingleWebPageState extends State<SingleWebPage> {
               ),
             ],
           ),
+          //BodyPart(s: s, itemkey: itemkey),
           SizedBox(
             height: s.height * 0.3,
             child: searchPlusComponents(s, context),
@@ -138,14 +149,13 @@ class _SingleWebPageState extends State<SingleWebPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         InkWell(
-                          key: itemkey,
                           //selected: _selectedIndex == 0,
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(0);
 
-                            _scrollToTap(0);
-                            //scrollToItem(0);
+                            ///_scrollToTap(0);
+                            scrollToItem(0);
                             // Then close the drawer
                             Navigator.pop(context);
                           },
@@ -172,7 +182,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(1);
-                            _scrollToTap(1);
+                            // _scrollToTap(1);
+                            scrollToItem(1);
                             // Then close the drawer
                             Navigator.pop(context);
                           },
@@ -199,7 +210,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(2);
-                            _scrollToTap(2);
+                            // _scrollToTap(2);
+                            scrollToItem(2);
                             // Then close the drawer
                             Navigator.pop(context);
                           },
@@ -226,7 +238,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(3);
-                            _scrollToTap(3);
+                            // _scrollToTap(3);
+                            scrollToItem(3);
                             // Then close the drawer
                             Navigator.pop(context);
                           },
@@ -253,7 +266,8 @@ class _SingleWebPageState extends State<SingleWebPage> {
                           onTap: () {
                             // Update the state of the app
                             _onItemTapped(4);
-                            _scrollToTap(4);
+                            //_scrollToTap(4);
+                            scrollToItem(4);
                             // Then close the drawer
                             Navigator.pop(context);
                           },
@@ -277,109 +291,6 @@ class _SingleWebPageState extends State<SingleWebPage> {
                         ),
                       ],
                     );
-                    // return Column(
-                    //   // Important: Remove any padding from the ListView.
-                    //   //padding: const EdgeInsets.all(16),
-                    //   children: [
-                    //     ListTile(
-                    //       title: const Text(
-                    //         'People',
-                    //         style: TextStyle(
-                    //           fontSize: 18,
-                    //           height: 1.2,
-                    //         ),
-                    //       ),
-                    //       selected: _selectedIndex == 0,
-                    //       onTap: () {
-                    //         // Update the state of the app
-                    //         _onItemTapped(0);
-                    //         _scrollToTap(0);
-                    //         // Then close the drawer
-                    //         Navigator.pop(context);
-                    //       },
-                    //     ),
-                    //     ListTile(
-                    //       title: const Text(
-                    //         'Expertise',
-                    //         style: TextStyle(
-                    //           fontSize: 18,
-                    //         ),
-                    //       ),
-                    //       selected: _selectedIndex == 1,
-                    //       onTap: () {
-                    //         // Update the state of the app
-                    //         _onItemTapped(1);
-                    //         _scrollToTap(1);
-                    //         // Then close the drawer
-                    //         Navigator.pop(context);
-                    //       },
-                    //     ),
-                    //     ListTile(
-                    //       title: const Text(
-                    //         'About Us',
-                    //         style: TextStyle(
-                    //           fontSize: 18,
-                    //         ),
-                    //       ),
-                    //       selected: _selectedIndex == 2,
-                    //       onTap: () {
-                    //         // Update the state of the app
-                    //         _onItemTapped(2);
-                    //         _scrollToTap(2);
-                    //         // Then close the drawer
-                    //         Navigator.pop(context);
-                    //       },
-                    //     ),
-                    //     ListTile(
-                    //       title: const Text(
-                    //         'Research & Knowledge',
-                    //         style: TextStyle(
-                    //           fontSize: 18,
-                    //         ),
-                    //       ),
-                    //       selected: _selectedIndex == 3,
-                    //       onTap: () {
-                    //         // Update the state of the app
-                    //         _onItemTapped(3);
-                    //         _scrollToTap(3);
-                    //         // Then close the drawer
-                    //         Navigator.pop(context);
-                    //       },
-                    //     ),
-                    //     // ListTile(
-                    //     //   title: const Text(
-                    //     //     'Careers',
-                    //     //     style: TextStyle(
-                    //     //       fontSize: 18,
-                    //     //     ),
-                    //     //   ),
-                    //     //   selected: _selectedIndex == 4,
-                    //     //   onTap: () {
-                    //     //     // Update the state of the app
-                    //     //     _onItemTapped(4);
-                    //     //     _scrollToTap(4);
-                    //     //     // Then close the drawer
-                    //     //     Navigator.pop(context);
-                    //     //   },
-                    //     // ),
-                    //     ListTile(
-                    //       title: const Text(
-                    //         'Contact us',
-                    //         style: TextStyle(
-                    //           fontSize: 18,
-                    //         ),
-                    //       ),
-                    //       selected: _selectedIndex == 4,
-                    //       onTap: () {
-                    //         // Update the state of the app
-                    //         _onItemTapped(4);
-                    //         _scrollToTap(4);
-                    //         // Then close the drawer
-                    //         Navigator.pop(context);
-                    //       },
-                    //     ),
-                    //   ],
-                    // );
                   }),
             ),
           ),
@@ -474,6 +385,106 @@ class _SingleWebPageState extends State<SingleWebPage> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class BodyPart extends StatelessWidget {
+  const BodyPart({
+    super.key,
+    required this.s,
+    required this.itemkey,
+  });
+
+  final Size s;
+  final GlobalKey<State<StatefulWidget>> itemkey;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        Column(
+          children: [
+            Container(key: itemkey, child: const PeoplePage()),
+            Container(key: itemkey, child: const CorePractice()),
+            Container(key: itemkey, child: const AboutUs()),
+            Container(key: itemkey, child: const CoreTeamWidget()),
+            Container(key: itemkey, child: const BottomBarWidget()),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final ScrollController _chipsScrollController = ScrollController();
+  String _currentChip = 'Chip 1';
+  static const _chips = [
+    'Chip 1',
+    'Chip 2',
+    'Chip 3',
+    'Chip 4',
+    'Chip 5',
+    'Chip 6',
+    'Chip 7',
+    'Chip 8',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: SizedBox(
+          height: 70,
+          child: ListView.separated(
+            controller: _chipsScrollController,
+            physics: const ClampingScrollPhysics(),
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+            scrollDirection: Axis.horizontal,
+            itemCount: _chips.length,
+            itemBuilder: (final BuildContext context, final int index) {
+              return ChoiceChip(
+                  key: GlobalObjectKey(_chips[index]),
+                  label: Text(_chips[index]),
+                  selected: _chips[index] == _currentChip,
+                  onSelected: (final bool value) {
+                    _currentChip = _chips[index];
+                    Scrollable.ensureVisible(
+                      GlobalObjectKey(_chips[index]).currentContext!,
+                      alignment: 0.5,
+                    );
+                  });
+            },
+            separatorBuilder: (final BuildContext context, final int index) =>
+                const SizedBox(width: 12),
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const MyHomePage(
+              title: 'Flutter Demo Home Page',
+            ),
+          ),
+        ),
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

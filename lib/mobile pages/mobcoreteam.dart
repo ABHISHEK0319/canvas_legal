@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../constant/colors.dart';
+import 'person page/mob_abhishek_aboutus.dart';
+import 'person page/mob_anukur_aboutus.dart';
 
 class MobCoreTeamWidget extends StatelessWidget {
   const MobCoreTeamWidget({super.key});
@@ -10,17 +12,10 @@ class MobCoreTeamWidget extends StatelessWidget {
     Size s = MediaQuery.of(context).size;
     return Container(
       color: const Color.fromRGBO(0, 0, 0, 0.867),
-      height: (MediaQuery.of(context).size.height),
+      //height: (MediaQuery.of(context).size.height),
       width: (MediaQuery.of(context).size.width),
       child: Stack(
         children: [
-          // Container(
-          //   width: double.infinity,
-          //   height: s.height * 1.35,
-          //   decoration: const BoxDecoration(
-          //     color: Color.fromRGBO(0, 0, 0, 0.867),
-          //   ),
-          // ),
           Positioned(
             bottom: 0.0,
             child: Image.asset(
@@ -30,15 +25,6 @@ class MobCoreTeamWidget extends StatelessWidget {
               fit: BoxFit.fill,
             ),
           ),
-          // Positioned(
-          //   bottom: 0.0,
-          //   child: Image.asset(
-          //     "assets/1x/Core Team Down Shape.png",
-          //     width: s.width,
-          //     height: s.height * 0.035,
-          //     fit: BoxFit.fill,
-          //   ),
-          // ),
           Padding(
             padding: const EdgeInsets.only(top: 60.0),
             child: Column(
@@ -81,7 +67,10 @@ class MobCoreTeamWidget extends StatelessWidget {
                   \nPractise Areas - Dispute Resolution, White Collar Crimes, 
                   \nIntellectual Property, Employment, Corporate & Commercial""",
                       emailtxt: 'Email: ankur@canvaslegal.in',
-                      imgbutton: () {},
+                      imgbutton: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const MobAnkurAboutUs()));
+                      },
                     ),
                     const SizedBox(height: 25),
                     DetailShowCard(
@@ -90,7 +79,13 @@ class MobCoreTeamWidget extends StatelessWidget {
                   \nPractise Areas -  Real Estate & Construction, NRI Services, 
                   \nData Protection & Privacy """,
                       emailtxt: 'Email: abhishek@canvaslegal.in',
-                      imgbutton: () {},
+                      imgbutton: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const MobAbhishekAboutUs()));
+                      },
                     ),
                   ],
                 ),

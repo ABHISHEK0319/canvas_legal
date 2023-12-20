@@ -167,8 +167,11 @@ class DetailOfCompany extends StatelessWidget {
             height: 0.7),
         subtxtStyle = const TextStyle(
             color: Colors.black, fontSize: 9, fontWeight: FontWeight.bold),
-        txtstyle =
-            const TextStyle(color: Colors.black, fontSize: 9, height: 1.0);
+        txtstyle = const TextStyle(
+            color: Colors.black,
+            fontSize: 9,
+            height: 1.0,
+            fontWeight: FontWeight.w500);
 
     return FittedBox(
       child: Column(

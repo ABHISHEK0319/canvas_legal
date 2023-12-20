@@ -43,8 +43,8 @@ class _CorePracticeState extends State<CorePractice> {
             style: const TextStyle(
               fontFamily: "ButlerRegular",
               color: Colors.black,
-              fontSize: 50,
-              fontWeight: FontWeight.w700,
+              fontSize: 52,
+              fontWeight: FontWeight.w600,
             ),
             children: <TextSpan>[
               TextSpan(
@@ -52,16 +52,16 @@ class _CorePracticeState extends State<CorePractice> {
                 style: TextStyle(
                   fontFamily: "ButlerRegular",
                   color: CanvasLegalColors.Blue[1],
-                  fontSize: 50,
-                  fontWeight: FontWeight.w700,
+                  fontSize: 52,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],
           ),
         ),
-        SizedBox(
-          height: size.height * 0.722,
-          child: const CorePracticeItems(),
+        const Expanded(
+          ///height: size.height * 0.722,
+          child: CorePracticeItems(),
         ),
         // const AboutUs(),
       ],
@@ -73,7 +73,7 @@ class _CorePracticeState extends State<CorePractice> {
     return Column(
       children: [
         const SizedBox(
-          height: 120,
+          height: 118,
         ),
         RichText(
           text: TextSpan(
@@ -97,9 +97,12 @@ class _CorePracticeState extends State<CorePractice> {
             ],
           ),
         ),
-        SizedBox(
-          height: size.height * 0.70,
-          child: const CorePracticeItems(),
+        Expanded(
+          flex: 4,
+          child: SizedBox(
+            height: size.height * 0.68,
+            child: const CorePracticeItems(),
+          ),
         ),
         // const AboutUs(),
       ],
@@ -172,11 +175,13 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
     return Stack(
       //alignment: Alignment.center,
       children: <Widget>[
-        Positioned(
-          bottom: 0.0,
-          child: Image.asset(
-            "assets/1x/Core practice shape.png",
-            //height: 50,
+        Expanded(
+          child: Positioned(
+            bottom: 0.0,
+            child: Image.asset(
+              "assets/1x/Core practice shape.png",
+              //height: 50,
+            ),
           ),
         ),
         Row(
@@ -187,7 +192,7 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsets.only(top: 60, left: 10, right: 10),
+                        const EdgeInsets.only(top: 120, left: 10, right: 10),
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: IconButton(
@@ -241,7 +246,7 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 60, left: 10, right: 10),
+              padding: const EdgeInsets.only(top: 120, left: 10, right: 10),
               child: Align(
                 alignment: Alignment.topRight,
                 child: IconButton(
@@ -259,13 +264,6 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
             // )
           ],
         ),
-
-        //const SizedBox(height: 140),
-
-        // AnimatedBuilder(
-        //   animation: _controller,
-        //   builder: _buildAnimation,
-        // ),
       ],
     );
   }
@@ -273,32 +271,37 @@ class _CorePracticeItemsState extends State<CorePracticeItems>
 
 class IconAndText extends StatelessWidget {
   final String icon, title;
+  final VoidCallback onclick;
   const IconAndText({
     Key? key,
     required this.icon,
     required this.title,
+    required this.onclick,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          icon,
-          height: 140,
-        ),
-        const SizedBox(height: 15),
-        Text(
-          title,
-          style: const TextStyle(
-            fontFamily: 'ButlerRegular',
-            fontSize: 24,
-            fontWeight: FontWeight.w800,
-            color: Colors.black,
+    return InkWell(
+      onTap: onclick,
+      child: Column(
+        children: [
+          Image.asset(
+            icon,
+            height: 140,
           ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+          const SizedBox(height: 15),
+          Text(
+            title,
+            style: const TextStyle(
+              fontFamily: 'ButlerRegular',
+              fontSize: 24,
+              fontWeight: FontWeight.w800,
+              color: Colors.black,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -307,60 +310,70 @@ class IconAndText extends StatelessWidget {
 
 List<Widget> listcoreitem = <Widget>[
   const SizedBox(width: 60),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 1.png',
     title: 'Dispute \nResolution',
+    onclick: () {},
   ),
   const SizedBox(width: 80),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 2.png',
     title: 'Real Estate \nAnd Construction',
+    onclick: () {},
   ),
   const SizedBox(width: 80),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 3.png',
     title: 'Corporate \n& Commercial',
+    onclick: () {},
   ),
   const SizedBox(width: 80),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 4.png',
     title: 'Corporate \nSecretarial',
+    onclick: () {},
   ),
   const SizedBox(width: 80),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 5.png',
     title: 'white \nCollar Crime',
+    onclick: () {},
   ),
   const SizedBox(width: 80),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 6.png',
     title: 'Employment',
+    onclick: () {},
   ),
   const SizedBox(width: 80),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 7.png',
     title: 'Start-Ups',
+    onclick: () {},
   ),
   const SizedBox(width: 80),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 8.png',
     title: 'Intellectual \nProperty',
+    onclick: () {},
   ),
   const SizedBox(width: 80),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 9.png',
     title: 'Data Protection \n& Privary',
+    onclick: () {},
   ),
   const SizedBox(width: 80),
-  const IconAndText(
+  IconAndText(
     icon: 'assets/images/Asset 10.png',
     title: 'NRI \nServices',
+    onclick: () {},
   ),
 
-  Container(
-    width: 1,
-    height: 40,
-    color: Colors.black,
-  )
+  // Container(
+  //   width: 1,
+  //   height: 40,
+  //   color: Colors.black,
+  // )
   //const SizedBox(width: 40),
 ].toList();

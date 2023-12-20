@@ -1,9 +1,11 @@
 import 'package:canvas_legal/responsiveclass.dart';
+import 'package:canvas_legal/web%20pages/persons%20Page/abhishek_aboutus.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constant/colors.dart';
 import '../mobile pages/mobcoreteam.dart';
+import 'persons Page/anukur_aboutus.dart';
 
 class CoreTeamWidget extends StatelessWidget {
   const CoreTeamWidget({super.key});
@@ -64,18 +66,18 @@ class CoreTeamWidget extends StatelessWidget {
                       text: TextSpan(
                         text: 'Core ',
                         style: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 50,
-                          fontFamily: "ButlerBlack",
+                          fontWeight: FontWeight.w600,
+                          fontSize: 52,
+                          fontFamily: "ButlerRegular",
                           color: Color(0xffffffff),
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: 'Team',
                             style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 50,
-                                fontFamily: "ButlerBlack",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 52,
+                                fontFamily: "ButlerRegular",
                                 color: CanvasLegalColors.Blue[1]),
                           ),
                         ],
@@ -93,7 +95,12 @@ class CoreTeamWidget extends StatelessWidget {
                       \nIntellectual Property, Employment, Corporate & 
                       \nCommercial""",
                       emailtxt: 'E: ankur@canvaslegal.in',
-                      imgbutton: () {},
+                      imgbutton: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AnkurAboutUs()));
+                      },
                     ),
                     const SizedBox(width: 95),
                     DetailShowCard(
@@ -102,7 +109,12 @@ class CoreTeamWidget extends StatelessWidget {
                 \nPractise Areas -  Real Estate & Construction, NRI Services, 
                 \nData Protection & Privacy """,
                       emailtxt: 'E: abhishek@canvaslegal.in',
-                      imgbutton: () {},
+                      imgbutton: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AbhishekAboutUs()));
+                      },
                     ),
                   ],
                 ),
@@ -117,7 +129,7 @@ class CoreTeamWidget extends StatelessWidget {
   Widget coreMediumbody(Size s, context) {
     return Container(
       color: const Color.fromRGBO(0, 0, 0, 0.867),
-      height: (MediaQuery.of(context).size.height),
+      //height: (MediaQuery.of(context).size.height),
       width: (MediaQuery.of(context).size.width),
       child: Stack(
         children: [
@@ -163,18 +175,18 @@ class CoreTeamWidget extends StatelessWidget {
                       text: TextSpan(
                         text: 'Core ',
                         style: const TextStyle(
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
                           fontSize: 50,
-                          fontFamily: "ButlerBlack",
+                          fontFamily: "ButlerRegular",
                           color: Color(0xffffffff),
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: 'Team',
                             style: TextStyle(
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w600,
                                 fontSize: 50,
-                                fontFamily: "ButlerBlack",
+                                fontFamily: "ButlerRegular",
                                 color: CanvasLegalColors.Blue[1]),
                           ),
                         ],
@@ -187,22 +199,33 @@ class CoreTeamWidget extends StatelessWidget {
                   children: [
                     DetailShowCardMedium(
                       title: 'ANKUR TRIPATHI',
-                      subtext: """Licensed Attorney, Bar Council of India 
-                \nPractise Areas - Dispute Resolution, White Collar Crimes, 
-                \nIntellectual Property, Employment, Corporate & Commercial""",
+                      subtext:
+                          """Licensed Attorney, Bar Council of India \nPractise Areas - Dispute Resolution, White Collar Crimes, \nIntellectual Property, Employment, Corporate & Commercial""",
                       emailtxt: 'E: ankur@canvaslegal.in',
-                      imgbutton: () {},
+                      imgbutton: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AnkurAboutUs()));
+                      },
                     ),
                     //const SizedBox(width: 95),
                     DetailShowCardMedium(
                       title: 'ABHISHEK P.N',
-                      subtext: """Licensed Attorney, Bar Council of India 
-                \nPractise Areas -  Real Estate & Construction, NRI Services, 
-                \nData Protection & Privacy """,
+                      subtext:
+                          """Licensed Attorney, Bar Council of India \nPractise Areas -  Real Estate & Construction, NRI Services, \nData Protection & Privacy """,
                       emailtxt: 'E: abhishek@canvaslegal.in',
-                      imgbutton: () {},
+                      imgbutton: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AbhishekAboutUs()));
+                      },
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
               ],
             ),
@@ -243,11 +266,11 @@ class DetailShowCard extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.only(
-            top: 260,
+            top: 230,
             left: 35,
             right: 30,
           ),
-          //height: 190,
+          height: 200,
           width: 330,
           padding:
               const EdgeInsets.only(top: 30, left: 30, right: 30, bottom: 15),
@@ -276,7 +299,7 @@ class DetailShowCard extends StatelessWidget {
               Text(
                 subtext,
                 style: const TextStyle(
-                  height: 0.6,
+                  height: 0.7,
                   color: Colors.black,
                   fontSize: 10,
                 ),

@@ -17,7 +17,7 @@ class AboutUs extends StatelessWidget {
       color: Colors.black,
     );
     return Container(
-      height: (MediaQuery.of(context).size.height),
+      //height: (MediaQuery.of(context).size.height),
       width: (MediaQuery.of(context).size.width),
       padding: const EdgeInsets.only(top: 140, bottom: 120),
       decoration: const BoxDecoration(
@@ -61,7 +61,7 @@ class AboutUs extends StatelessWidget {
                       style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 52,
-                        fontFamily: "ButlerBlack",
+                        fontFamily: "ButlerRegular",
                       ),
                       children: <TextSpan>[
                         TextSpan(
@@ -69,7 +69,7 @@ class AboutUs extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 52,
-                              fontFamily: "ButlerBlack",
+                              fontFamily: "ButlerRegular",
                               color: CanvasLegalColors.Blue[1]),
                         ),
                       ],
@@ -152,7 +152,7 @@ class AboutUs extends StatelessWidget {
               child: Container(
                 //padding: const EdgeInsets.all(35),
                 // color: Colors.amber,
-                width: MediaQuery.of(context).size.width * 1 / 2.2,
+                width: MediaQuery.of(context).size.width * 1 / 2.3,
                 child: Image.asset(
                   "assets/images/About Us icon.png",
                   height: size.height * 0.6,
@@ -175,16 +175,16 @@ class AboutUs extends StatelessWidget {
                         text: 'About ',
                         style: const TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: 52,
-                          fontFamily: "ButlerBlack",
+                          fontSize: 50,
+                          fontFamily: "ButlerRegular",
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: 'Us',
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                fontSize: 52,
-                                fontFamily: "ButlerBlack",
+                                fontSize: 50,
+                                fontFamily: "ButlerRegular",
                                 color: CanvasLegalColors.Blue[1]),
                           ),
                         ],
@@ -194,24 +194,32 @@ class AboutUs extends StatelessWidget {
                       """Located in the thriving hub of Bangalore, India, Canvas Legal stands as a testament to dedication, innovation, and unwavering commitment to legal excellence. We pride ourselves on offering expert guidance in the legal sphere, ensuring our clients feel supported and informed every step of the way.""",
                       style: txtstyle,
                       textAlign: TextAlign.justify,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 4,
                     ),
                     const SizedBox(height: 15),
                     Text(
                       """While many firms hold fast to traditional methods, we embrace progressive approaches. Our skilled legal team is chosen for their dedication, knowledge, and expertise. Together, we focus on delivering reliable, effective, and timely solutions for our clients""",
                       style: txtstyle,
                       textAlign: TextAlign.justify,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 4,
                     ),
                     const SizedBox(height: 15),
                     Text(
                       """Our approach is straightforward: Listen. Innovate. Deliver. We place emphasis on understanding our clients' needs and converting them into actionable legal strategies.""",
                       style: txtstyle,
                       textAlign: TextAlign.justify,
+                      overflow: TextOverflow.fade,
+                      maxLines: 3,
                     ),
                     const SizedBox(height: 15),
                     Text(
                       """With Canvas Legal, you find a trusted partner ready to assist with any legal and corporate requirement, ensuring you navigate the complexities of the law with clarity and confidence""",
                       style: txtstyle,
                       textAlign: TextAlign.justify,
+                      overflow: TextOverflow.fade,
+                      maxLines: 3,
                     ),
                     const SizedBox(
                       height: 15,
